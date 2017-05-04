@@ -25,69 +25,32 @@ class DownloadController extends Controller
         return view('downloads.index', compact('downloads'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function fileView($id)
     {
-        //
+        $file = Download::visible()->find($id);
+        $file = Download::visible()->find($id);
+        $location = public_path() . '/files/' . $file->location . '.' . $file->type;
+        $name = $file->name . '.' . $file->type;
+
+        $headers = [
+            'Content-Type: application/pdf',
+            'Content-Disposition: inline; filename="' . $name . '"'
+        ];
+
+        return response()->file($location, $headers);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function fileDownload($id)
     {
-        //
+        $file = Download::visible()->find($id);
+        $location = public_path() . '/files/' . $file->location . '.' . $file->type;
+        $name = $file->name . '.' . $file->type;
+
+        $headers = [
+            'Content-Type: application/pdf'
+        ];
+
+        return response()->download($location, $name, $headers);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Download  $download
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Download $download)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Download  $download
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Download $download)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Download  $download
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Download $download)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Download  $download
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Download $download)
-    {
-        //
-    }
 }

@@ -28,7 +28,14 @@
     @yield ('header')
 
     <div class="container">
-      <div class="row">
+      <div class="row main-content">
+        <div class="col-lg-12 text-center">
+          <hr>
+          <h2>
+            @yield ('title')
+          </h2>
+          <hr style="padding-bottom: 1em;">
+        </div>
 
         @yield ('content')
         

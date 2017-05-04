@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Download extends Model
+class Contact extends Model
 {
 	
-    public function scopeVisible($query)
+    public function scopeActive($query)
     {
     	return $query->where('hidden', 0);
     }

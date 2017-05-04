@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Availability;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactRequest;
 
-class ContactController extends Controller
+class AvailabilityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $managers = \DB::table('managers')->get();
-        return view('contact.index', compact('managers'));
+        //
     }
 
     /**
@@ -34,18 +33,18 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(Request $request)
     {
-        \Mail::send();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Availability  $availability
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Availability $availability)
     {
         //
     }
@@ -53,10 +52,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Availability  $availability
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Availability $availability)
     {
         //
     }
@@ -65,10 +64,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Availability  $availability
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Availability $availability)
     {
         //
     }
@@ -76,10 +75,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Availability  $availability
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Availability $availability)
     {
         //
     }

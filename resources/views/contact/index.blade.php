@@ -1,7 +1,32 @@
 @extends ('layouts.master')
 
+@section ('title')
+	Contact
+@endsection
+
 @section ('content')
 
-	
+	<div class="table-responsive">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Title</th>
+					<th>Phone</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach ($managers as $manager)
+				<tr>
+					<td>{{ $manager->name }}</td>
+					<td>{{ $manager->title }}</td>
+					<td><a href="tel:{{ $manager->phone }}">{{ phoneToReadable($manager->phone) }}</a></td>
+					<td><a href="mailto:{{ $manager->email }}">{{ $manager->email }}</a></td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
 
 @endsection
