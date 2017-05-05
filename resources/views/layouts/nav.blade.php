@@ -5,6 +5,7 @@
 	<a class="navbar-brand" href="{{ route('home') }}">Deep Blue Sea Foundation</a>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto justify-content-end w-100">
+		@if (Auth::check())
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('home') }}">HOME</a>
 			</li>
@@ -28,6 +29,14 @@
 					<a class="dropdown-item" href="http://whentowork.com">WhenToWork</a>
 				</div>
 			</li>
+		@else
+			<li class="nav-item">
+				<a class="nav-link" href="{{ route('login') }}">LOGIN</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ route('register') }}">REGISTER</a>
+			</li>
+		@endif
 		</ul>
 	</div>
 </nav>

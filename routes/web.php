@@ -30,3 +30,11 @@ Route::group(['prefix' => 'info'], function () {
 });
 
 Route::get('/about', 'MainController@about')->name('about');
+
+Auth::routes();
+
+Route::get('/logout', function () {
+	if (auth()->logout()) {
+		return redirect()->home();
+	}
+});
