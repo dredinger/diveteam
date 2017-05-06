@@ -15,12 +15,11 @@ Route::get('/', 'MainController@index')->name('home');
 
 Route::get('/downloads', 'DownloadController@index')->name('downloads');
 
-Route::group(['prefix' => 'downloads'], function () {
-	Route::get('/{id}/download', 'DownloadController@fileDownload');
-	Route::get('/{id}/view', 'DownloadController@fileView');
-});
+Route::get('/downloads/{id}/{method?}', 'DownloadController@getFile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
+
+Route::get('/volunteer', 'ContactController@volunteer')->name('volunteer');
 
 Route::get('/info', 'InfoController@index')->name('info');
 
@@ -29,12 +28,15 @@ Route::group(['prefix' => 'info'], function () {
 	Route::get('feeds', 'InfoController@feeds')->name('feeds');
 });
 
-Route::get('/about', 'MainController@about')->name('about');
-
 Auth::routes();
 
 Route::get('/logout', function () {
-	if (auth()->logout()) {
-		return redirect()->home();
-	}
+	auth()->logout();
+	return redirect('/');
 });
+
+Route::any('{query}', function () {
+	return redirect('/');
+})->where('query', '.*');
+
+Route::get('/404', 'MainController@missing')->name('missing');

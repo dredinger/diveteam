@@ -31,10 +31,10 @@
 			</li>
 		@else
 			<li class="nav-item">
-				<a class="nav-link" href="{{ route('login') }}">LOGIN</a>
+				<a class="nav-link" href="{{ route('volunteer') }}">VOLUNTEER TODAY</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{{ route('register') }}">REGISTER</a>
+				<a class="nav-link" href="{{ route('login') }}">LOGIN</a>
 			</li>
 		@endif
 		</ul>

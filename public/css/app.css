@@ -27,7 +27,15 @@ footer {
     padding-left: 12px;
 }
 
-
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 .navbar-inverse .navbar-nav .nav-link {
 	color: rgba(255,255,255,1);

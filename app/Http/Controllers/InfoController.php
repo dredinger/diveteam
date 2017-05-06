@@ -44,7 +44,17 @@ class InfoController extends Controller
 
     public function feeds()
     {
-        
+        $days = [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday'
+        ];
+
+        return view('info.feeds', compact('days'));
     }
 
 }

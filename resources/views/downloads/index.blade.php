@@ -15,12 +15,18 @@
 				</tr>
 			</thead>
 			<tbody>
+			@if ($downloads->count() == 0)
+				<tr>
+					<td colspan="2">No downloads exist.</td>
+				</tr>
+			@else
 				@foreach ($downloads as $download)
 				<tr>
 					<td contenteditable="false">{{ $download->name }}</td>
-					<td class="text-right"><a id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}/view">View</a><span id="divide">|</span><a id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">Download</a></td>
+					<td class="text-right"><a id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}">View</a><span id="divide">|</span><a id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">Download</a></td>
 				</tr>
 				@endforeach
+			@endif
 			</tbody>
 		</table>
 	</div>

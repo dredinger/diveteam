@@ -48,11 +48,17 @@ class LoginController extends Controller
             return back();
         }
 
+        session()->flash('message', 'You are logged in!');
+
         return redirect()->intended();
     }
 
-    // public function logout()
-    // {
-    //     auth()->logout();
-    // }
+    public function logout()
+    {
+        auth()->logout();
+
+        session()->flash('message', 'You are logged out!');
+
+        return redirect('/');
+    }
 }

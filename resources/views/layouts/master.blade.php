@@ -25,10 +25,23 @@
       </div>
     @endif
 
+    @if ($flash = session('warning'))
+      <div id="flash-message" class="alert alert-warning" role="alert">
+        {{ $flash }}
+      </div>
+    @endif
+
+    @if ($flash = session('error'))
+      <div id="flash-message" class="alert alert-danger" role="alert">
+        {{ $flash }}
+      </div>
+    @endif
+
     @yield ('header')
 
     <div class="container">
       <div class="row main-content">
+      @if (View::hasSection('title'))
         <div class="col-lg-12 text-center">
           <hr>
           <h2>
@@ -36,6 +49,7 @@
           </h2>
           <hr style="padding-bottom: 1em;">
         </div>
+      @endif
 
         @yield ('content')
         

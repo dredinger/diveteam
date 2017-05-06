@@ -6,6 +6,8 @@
 
 @section ('content')
 
+	Below you will find Academy Trainers' general availability and their contact information. Please click on a name to pull up their contact info.<br /><br />
+
 	<div class="table-responsive">
 		<table class="table table-hover table-striped">
 			<thead>

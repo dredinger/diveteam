@@ -10,7 +10,7 @@ class ContactController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['volunteer']);
     }
     /**
      * Display a listing of the resource.
@@ -21,6 +21,11 @@ class ContactController extends Controller
     {
         $managers = \DB::table('managers')->get();
         return view('contact.index', compact('managers'));
+    }
+
+    public function volunteer()
+    {
+        return view ('contact.volunteer');
     }
 
     /**
