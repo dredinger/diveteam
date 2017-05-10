@@ -23,7 +23,13 @@
 				@foreach ($downloads as $download)
 				<tr>
 					<td contenteditable="false">{{ $download->name }}</td>
-					<td class="text-right"><a id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}">View</a><span id="divide">|</span><a id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">Download</a></td>
+					<td class="text-right">
+					<h5>
+						<a class="badge badge-info" id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}">VIEW</a>
+						<span id="divide"></span>
+						<a class="badge badge-primary" id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">DOWNLOAD</a>
+					</h5>
+					</td>
 				</tr>
 				@endforeach
 			@endif

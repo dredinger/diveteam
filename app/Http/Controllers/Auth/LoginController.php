@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Login;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -45,7 +46,9 @@ class LoginController extends Controller
     public function login()
     {
         if (! auth()->attempt(['password' => request('password')])) {
-            return back();
+            return back()->withErrors([
+                'message' => 'Please check your credentials and try again.'
+            ]);
         }
 
         session()->flash('message', 'You are logged in!');

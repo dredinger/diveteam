@@ -25,8 +25,8 @@
 			<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LOG &amp; SCHEDULE</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="http://tdad.diveaaus.com">Dive Log</a>
-					<a class="dropdown-item" href="http://whentowork.com">WhenToWork</a>
+					<a class="dropdown-item" target="_blank" href="http://tdad.diveaaus.com">Dive Log</a>
+					<a class="dropdown-item" target="_blank" href="http://whentowork.com">WhenToWork</a>
 				</div>
 			</li>
 		@else

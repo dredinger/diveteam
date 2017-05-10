@@ -57,6 +57,8 @@
                 </div>
             </div>
         </div>
+        
+        @include ('layouts.errors')
     </div>
 </div>
 @endsection
