@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Download;
 use Illuminate\Http\Request;
 
-class DownloadController extends Controller
+class DownloadsController extends Controller
 {
 
     protected $_file;

@@ -45,6 +45,12 @@ footer {
 	font-family: 'Montserrat', sans-serif;
 }
 
+/* DSO CUSTOMIZATION
+-------------------------------------------------- */
+
+.w50 {
+	width: 50%;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

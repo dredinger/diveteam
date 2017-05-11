@@ -13,9 +13,9 @@
 
 Route::get('/', 'MainController@index')->name('home');
 
-Route::get('/downloads', 'DownloadController@index')->name('downloads');
+Route::get('/downloads', 'DownloadsController@index')->name('downloads');
 
-Route::get('/downloads/{id}/{method?}', 'DownloadController@getFile');
+Route::get('/downloads/{id}/{method?}', 'DownloadsController@getFile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 
@@ -30,6 +30,13 @@ Route::group(['prefix' => 'info'], function () {
 
 Route::group(['prefix' => 'dso', 'middleware' => 'auth'], function () {
 	Route::get('/', 'DsoController@index');
+	Route::get('/logs', 'LogsController@index');
+	Route::get('/logs/add', 'LogsController@create');
+	Route::get('/notes', 'NotesController@index');
+	Route::get('/notes/add', 'NotesController@create');
+
+	Route::post('/logs/add', 'LogsController@store');
+	Route::post('/notes/add', 'NotesController@store');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -41,4 +48,4 @@ Route::get('/logout', function () {
 	return redirect('/');
 });
 
-Route::any('/404', 'MainController@missing')->name('missing');
+// Route::any('/404', 'MainController@missing')->name('missing');
