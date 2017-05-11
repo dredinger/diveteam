@@ -28,6 +28,10 @@ Route::group(['prefix' => 'info'], function () {
 	Route::get('feeds', 'InfoController@feeds')->name('feeds');
 });
 
+Route::group(['prefix' => 'dso', 'middleware' => 'auth'], function () {
+	Route::get('/', 'DsoController@index');
+});
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -38,7 +42,3 @@ Route::get('/logout', function () {
 });
 
 Route::any('/404', 'MainController@missing')->name('missing');
-
-// Route::any('{query}', function () {
-// 	return redirect('/');
-// })->where('query', '.*');
