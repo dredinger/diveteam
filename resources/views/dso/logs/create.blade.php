@@ -57,6 +57,10 @@ DSO Administration
 				<input class="form-control" type="text" pattern="[0-9]*" name="psi_sw" required maxlength="4" placeholder="0" autocomplete="off" />
 			</div>
 			<div class="input-group input-group-lg mt-4">
+				<span class="input-group-addon w50 text-right"><strong>Dining Room PSI</strong></span>
+				<input class="form-control" type="text" pattern="[0-9]*" name="psi_dr" required maxlength="4" placeholder="0" autocomplete="off" />
+			</div>
+			<div class="input-group input-group-lg mt-4">
 				<span class="input-group-addon w50 text-right"><strong>Bank System PSI</strong></span>
 				<input class="form-control" type="text" pattern="[0-9]*" name="psi_bank" required maxlength="4" placeholder="0" autocomplete="off" />
 			</div>
@@ -116,6 +120,8 @@ DSO Administration
 		</div>
 	</div>
 </form>
+
+@include ('layouts.errors')
 
 @endsection
 

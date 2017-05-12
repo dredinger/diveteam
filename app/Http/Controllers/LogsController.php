@@ -32,9 +32,18 @@ class LogsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $this->validate(request(), [
+            'psi_res' => 'required|digits:4',
+            'psi_uts' => 'required|digits:4',
+            'psi_sw' => 'required|digits:4',
+            'psi_dr' => 'required|digits:4',
+        ]);
+
+        session()->flash('message', 'Your log has been published.');
+
+        return redirect()->back();
     }
 
     /**
