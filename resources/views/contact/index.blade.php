@@ -11,7 +11,7 @@
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Title</th>
+					<th id="title">Title</th>
 					<th>Phone</th>
 					<th>Email</th>
 				</tr>
@@ -20,7 +20,7 @@
 				@foreach ($managers as $manager)
 				<tr>
 					<td>{{ $manager->name }}</td>
-					<td>{{ $manager->title }}</td>
+					<td id="title">{{ $manager->title }}</td>
 					<td><a href="tel:{{ $manager->phone }}">{{ phoneToReadable($manager->phone) }}</a></td>
 					<td><a href="mailto:{{ $manager->email }}">{{ $manager->email }}</a></td>
 				</tr>

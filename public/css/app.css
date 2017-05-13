@@ -5,6 +5,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
+	font-family: 'Montserrat', "Helvetica Neue", Helvetica, sans-serif;
 	padding-bottom: 3rem;
 	color: #5a5a5a;
 }
@@ -25,6 +26,17 @@ footer {
 #divide {
     padding-right: 12px;
     padding-left: 12px;
+}
+
+#flash-message {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 10;
+}
+
+.badge {
+	padding: .5em .7em;
 }
 
 .img-responsive,
@@ -115,6 +127,8 @@ footer {
 -------------------------------------------------- */
 @media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	a[id^="Download"] { display: none; }
+	td[id^="title"] { display: none; }
+	th[id^="title"] { display: none; }
 }
 
 @media (min-width: 40em) {
