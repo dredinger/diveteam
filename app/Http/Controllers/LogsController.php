@@ -32,14 +32,22 @@ class LogsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $this->validate(request(), [
+        $this->validate($request, [
             'psi_res' => 'required|digits:4',
             'psi_uts' => 'required|digits:4',
             'psi_sw' => 'required|digits:4',
             'psi_dr' => 'required|digits:4',
+            'psi_bank' => 'required|digits:4',
+            'psi_oxy_third' => 'required|digits:4',
+            'psi_oxy_second' => 'required|digits:4',
+            //'compressor_hours' => 'required|digits:4',
         ]);
+
+        if ($request->hasFile('diveboard_picture')) {
+            dd($request);
+        }
 
         session()->flash('message', 'Your log has been published.');
 

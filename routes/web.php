@@ -47,5 +47,3 @@ Route::get('/logout', function () {
 	auth()->logout();
 	return redirect('/');
 });
-
-// Route::any('/404', 'MainController@missing')->name('missing');

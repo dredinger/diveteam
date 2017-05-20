@@ -38,8 +38,7 @@ DSO Administration
 		</tbody>
 	</table>
 </div>
-
-<form action="/dso/logs/add" method="POST" style="width: 100%;">
+<form action="/dso/logs/add" method="POST" style="width: 100%;" {{ (isDay(6)) ? ' enctype="multipart/form-data"' : '' }}>
 	{{ csrf_field() }}
 	<div class="card mt-4 card-outline-primary">
 		<div class="card-header card-primary card-inverse"><h2>Daily Operations Log</h2></div>
@@ -65,25 +64,25 @@ DSO Administration
 				<input class="form-control" type="text" pattern="[0-9]*" name="psi_bank" required maxlength="4" placeholder="0" autocomplete="off" />
 			</div>
 			<div class="form-group form-group-lg mt-4 row" style="width:100%">
-				<label class="col-sm-6 control-label w50 text-right" for="test"><h4><strong>All Jumppack Masks Available</strong></h4></label>
+				<label class="col-sm-6 control-label w50 text-right" for="jumppack_masks"><h4><strong>All Jumppack Masks Available</strong></h4></label>
 				<div class="col-sm-6">
 					<input type="checkbox" name="jumppack_masks" id="jumppack_masks" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="Yes" data-off="No" data-size="medium" />
 				</div>
 			</div>
 			<div class="form-group form-group-lg mt-4 row" style="width:100%">
-				<label class="col-sm-6 control-label w50 text-right" for="test"><h4><strong>All Disinfectants Checked</strong></h4></label>
+				<label class="col-sm-6 control-label w50 text-right" for="disinfectants"><h4><strong>All Disinfectants Checked</strong></h4></label>
 				<div class="col-sm-6">
 					<input type="checkbox" name="disinfectants" id="disinfectants" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="Yes" data-off="No" data-size="medium" />
 				</div>
 			</div>
 			<div class="form-group form-group-lg mt-4 row" style="width:100%">
-				<label class="col-sm-6 control-label w50 text-right" for="test"><h4><strong>Safety Diver Checklist Complete</strong></h4></label>
+				<label class="col-sm-6 control-label w50 text-right" for="sd_checklist"><h4><strong>Safety Diver Checklist Complete</strong></h4></label>
 				<div class="col-sm-6">
 					<input type="checkbox" name="sd_checklist" id="sd_checklist" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="Yes" data-off="No" data-size="medium" />
 				</div>
 			</div>
 			<div class="form-group form-group-lg mt-4 row" style="width:100%">
-				<label class="col-sm-6 control-label w50 text-right" for="test"><h4><strong>All AEDs Green</strong></h4></label>
+				<label class="col-sm-6 control-label w50 text-right" for="aed"><h4><strong>All AEDs Green</strong></h4></label>
 				<div class="col-sm-6">
 					<input type="checkbox" name="aed" id="aed" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="Yes" data-off="No" data-size="medium" />
 				</div>
@@ -102,12 +101,12 @@ DSO Administration
 				<input class="form-control" type="text" pattern="[0-9]*" name="compressor_hours" required maxlength="4" placeholder="0" autocomplete="off" />
 			</div>
 			@endif
-			@if (isDay(4))
+			@if (isDay(6))
 			<div class="input-group input-group-lg mt-4">
 				<label class="input-group-btn w50">
 					<span class="btn btn-info btn-sm text-right"><strong>Dive Board Checklist Picture</strong><input type="file" style="display:none;" /></span>
 				</label>
-				<input style="height:51px;" class="form-control" type="text" name="compressor_hours" readonly />
+				<input style="height:51px;" class="form-control" type="text" name="diveboard_picture" readonly />
 			</div>
 			@endif
 			<div class="input-group input-group-lg mt-4">
