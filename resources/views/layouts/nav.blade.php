@@ -29,6 +29,9 @@
 					<a class="dropdown-item" target="_blank" href="http://whentowork.com">WhenToWork</a>
 				</div>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/logout">LOGOUT</a>
+			</li>
 		@else
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('volunteer') }}">VOLUNTEER TODAY</a>

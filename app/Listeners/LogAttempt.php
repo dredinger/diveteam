@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Log;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -26,6 +27,7 @@ class LogAttempt
      */
     public function handle(Attempting $event)
     {
-        // 
+        // Log::create($event);
+        // dd($event);
     }
 }

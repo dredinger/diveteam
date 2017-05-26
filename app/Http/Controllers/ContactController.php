@@ -10,7 +10,7 @@ class ContactController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['volunteer']);
+        $this->middleware('auth')->except(['volunteer', 'contact']);
     }
     /**
      * Display a listing of the resource.

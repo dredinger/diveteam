@@ -34,6 +34,7 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $this->validate($request, [
             'psi_res' => 'required|digits:4',
             'psi_uts' => 'required|digits:4',

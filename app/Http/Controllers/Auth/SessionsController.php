@@ -6,7 +6,7 @@ use App\Login;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class SessionsController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,6 +27,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new controller instance.
@@ -43,7 +44,12 @@ class LoginController extends Controller
         return 'username';
     }
 
-    public function login()
+    public function create()
+    {
+        return view('auth.login');
+    }
+
+    public function store()
     {
         if (! auth()->attempt(['password' => request('password')])) {
             return back()->withErrors([
@@ -56,12 +62,12 @@ class LoginController extends Controller
         return redirect()->intended();
     }
 
-    public function logout()
+    public function destroy()
     {
-        auth()->logout();
+        dd(auth()->logout());
 
         session()->flash('message', 'You are logged out!');
 
-        return redirect('/');
+        return redirect('/contact');
     }
 }

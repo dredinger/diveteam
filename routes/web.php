@@ -39,11 +39,12 @@ Route::group(['prefix' => 'dso', 'middleware' => 'auth'], function () {
 	Route::post('/notes/add', 'NotesController@store');
 });
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', 'Auth\SessionsController@create')->name('login');
+Route::post('login', 'Auth\SessionsController@store');
+// Route::get('logout', 'Auth\SessionsController@destroy')->name('logout');
 
-Route::get('/logout', function () {
+Route::get('logout', function () {
 	auth()->logout();
+	session()->flash('message', 'You are logged out!');
 	return redirect('/');
 });
