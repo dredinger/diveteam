@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Log;
 
 class LogsController extends Controller
 {
@@ -34,7 +35,6 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $this->validate($request, [
             'psi_res' => 'required|digits:4',
             'psi_uts' => 'required|digits:4',
@@ -43,14 +43,25 @@ class LogsController extends Controller
             'psi_bank' => 'required|digits:4',
             'psi_oxy_third' => 'required|digits:4',
             'psi_oxy_second' => 'required|digits:4',
-            //'compressor_hours' => 'required|digits:4',
         ]);
 
-        if ($request->hasFile('diveboard_picture')) {
-            dd($request);
+        if (isDay(4)) {
+            $this->validate($request, [
+                'compressor_hours' => 'required|digits:4'
+            ]);
+        }
+        if (isDay(5)) {
+            $this->validate($request, [
+                'diveboard_picture' => 'required|mimes:jpeg,bmp,png'
+            ]);
         }
 
-        session()->flash('message', 'Your log has been published.');
+        $log = new Log;
+        $log->setup($request);
+
+        // $this->log->create($request);
+
+        session()->flash('message', 'Your log has been saved.');
 
         return redirect()->back();
     }

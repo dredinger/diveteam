@@ -6,6 +6,8 @@ DSO Administration
 
 @section ('content')
 
+@include ('layouts.errors')
+
 <div class="table-responsive">
 	<table class="table table-hover table-striped">
 		<thead>
@@ -38,7 +40,7 @@ DSO Administration
 		</tbody>
 	</table>
 </div>
-<form action="/dso/logs/add" method="POST" style="width: 100%;" {{ (isDay(6)) ? ' enctype="multipart/form-data"' : '' }}>
+<form action="/dso/logs/add" method="POST" style="width: 100%;" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	<div class="card mt-4 card-outline-primary">
 		<div class="card-header card-primary card-inverse"><h2>Daily Operations Log</h2></div>
@@ -101,12 +103,12 @@ DSO Administration
 				<input class="form-control" type="text" pattern="[0-9]*" name="compressor_hours" required maxlength="4" placeholder="0" autocomplete="off" />
 			</div>
 			@endif
-			@if (isDay(6))
+			@if (isDay(5))
 			<div class="input-group input-group-lg mt-4">
 				<label class="input-group-btn w50">
-					<span class="btn btn-info btn-sm text-right"><strong>Dive Board Checklist Picture</strong><input type="file" style="display:none;" /></span>
+					<span class="btn btn-info btn-sm text-right"><strong>Dive Board Checklist Picture</strong><input type="file" style="display:none;" name="diveboard_picture" /></span>
 				</label>
-				<input style="height:51px;" class="form-control" type="text" name="diveboard_picture" readonly />
+				<input style="height:51px;" class="form-control" type="text" name="diveboard_picture_text" readonly />
 			</div>
 			@endif
 			<div class="input-group input-group-lg mt-4">
