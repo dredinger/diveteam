@@ -6,6 +6,6 @@
 
 @section ('content')
 
-	Generic volunteer today template.
+	
 
 @endsection

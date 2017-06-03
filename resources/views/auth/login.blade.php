@@ -18,7 +18,7 @@
                             <label for="name" class="col-form-label col-form-label-lg">Full Name</label>
 
                             <div class="col-md-12">
-                                <input id="name" type="name" class="form-control form-control-lg" name="name" required>
+                                <input id="name" type="name" class="form-control form-control-lg" name="name" required autofocus>
                             </div>
                         </div>
 
