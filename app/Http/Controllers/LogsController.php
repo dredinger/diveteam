@@ -35,25 +35,27 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'psi_res' => 'required|digits:4',
-            'psi_uts' => 'required|digits:4',
-            'psi_sw' => 'required|digits:4',
-            'psi_dr' => 'required|digits:4',
-            'psi_bank' => 'required|digits:4',
-            'psi_oxy_third' => 'required|digits:4',
-            'psi_oxy_second' => 'required|digits:4',
-        ]);
+        // $this->validate($request, [
+        //     'psi_res' => 'required|digits:4',
+        //     'psi_uts' => 'required|digits:4',
+        //     'psi_sw' => 'required|digits:4',
+        //     'psi_dr' => 'required|digits:4',
+        //     'psi_bank' => 'required|digits:4',
+        //     'psi_oxy_third' => 'required|digits:4',
+        //     'psi_oxy_second' => 'required|digits:4',
+        // ]);
 
         if (isDay(4)) {
             $this->validate($request, [
                 'compressor_hours' => 'required|digits:4'
             ]);
         }
-        if (isDay(5)) {
+        if (isDay(5) && $request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
             $this->validate($request, [
-                'diveboard_picture' => 'required|mimes:jpeg,bmp,png'
+                'diveboard_picture' => 'required|image'
             ]);
+        } else {
+            dd('error!');
         }
 
         $log = new Log;

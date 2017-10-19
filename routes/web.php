@@ -28,7 +28,7 @@ Route::group(['prefix' => 'info'], function () {
 	Route::get('feeds', 'InfoController@feeds')->name('feeds');
 });
 
-Route::group(['prefix' => 'dso', 'middleware' => 'auth'], function () {
+Route::domain('dso.deepblueseafoundation.org')->group(function () {
 	Route::get('/', 'DsoController@index');
 	Route::get('/logs', 'LogsController@index');
 	Route::get('/logs/add', 'LogsController@create');

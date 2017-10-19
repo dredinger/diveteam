@@ -147,8 +147,6 @@ DSO Administration
 	</div>
 </form>
 
-@include ('layouts.errors')
-
 @endsection
 
 @section ('extra')
