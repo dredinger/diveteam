@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section ('title')
-	Begin Your Volunteer Adventure!
+	Diver
 @endsection
 
 @section ('content')

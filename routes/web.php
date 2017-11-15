@@ -19,7 +19,13 @@ Route::get('/downloads/{id}/{method?}', 'DownloadsController@getFile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 
-Route::get('/volunteer', 'ContactController@volunteer')->name('volunteer');
+Route::get('/volunteer', 'VolunteerController@index')->name('volunteer');
+
+Route::group(['prefix' => 'volunteer'], function () {
+	Route::get('assistant', 'VolunteerController@assistant');
+	Route::get('guide', 'VolunteerController@guide');
+	Route::get('diver', 'VolunteerController@diver');
+});
 
 Route::get('/info', 'InfoController@index')->name('info');
 

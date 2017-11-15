@@ -3,6 +3,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<a class="navbar-brand" href="{{ route('home') }}">Deep Blue Sea Foundation</a>
+	{{-- <div class="text-center">Test</div> --}}
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto justify-content-end w-100">
 		@if (Auth::check())
