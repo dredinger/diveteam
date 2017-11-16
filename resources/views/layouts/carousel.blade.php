@@ -9,9 +9,9 @@
           <img class="first-slide img-fluid" src="{{ asset('/img/carousel/1.jpg') }}" alt="First slide">
           <div class="container">
             <div class="carousel-caption d-none d-md-block text-left">
-              <h1>Welcome to the new (and improved!) DBSF's Dive Team website!</h1>
-              <p>If you're here for some info, please check the links at the top of the page. If you have questions, please use the button below to be sent to the contact page.</p>
-              <p><a class="btn btn-lg btn-primary" href="{{ route('contact') }}" role="button">Contact</a></p>
+              <h1>Welcome to the new (and improved!) Deep Blue Sea Foundation website!</h1>
+              <p>If you're here for some info, please check the links at the top of the page. If you have questions about the Foundation, please use the button below to be sent to the information page.</p>
+              <p><a class="btn btn-lg btn-primary" href="{{ route('volunteer') }}" role="button">Learn More</a></p>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="carousel-caption d-none d-md-block">
               <h1>Who We Are</h1>
               <p>Have you ever wondered just what the DBSF dive team does? Click the button below to learn more!</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{{ route('volunteer') }}" role="button">Learn More</a></p>
             </div>
           </div>
         </div>
