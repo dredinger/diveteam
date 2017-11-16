@@ -23,4 +23,6 @@
 	});
 	</script>
 
+	@include ('layouts.analytics')
+
 	@yield ('extra')
