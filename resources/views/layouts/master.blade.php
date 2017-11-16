@@ -40,23 +40,20 @@
 
 		@yield ('header')
 
-		<div class="container">
-			<div class="row main-content">
-				@if (View::hasSection('title'))
-					<div class="col-lg-12 text-center">
-						<hr>
-						<h2>
-							@yield ('title')
-						</h2>
-						<hr style="padding-bottom: 1em;">
-					</div>
-				@endif
+		<main role="main" class="container">
+			@if (View::hasSection('title'))
+				<div class="col-lg-12 text-center">
+					<hr>
+					<h2>
+						@yield ('title')
+					</h2>
+					<hr style="padding-bottom: 1em;">
+				</div>
+			@endif
 
-				@yield ('content')
-
-
-			</div>
-		</div>
+			@yield ('content')
+			
+		</main>
 
 		@include ('layouts.footer')
 		

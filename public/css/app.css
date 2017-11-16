@@ -35,6 +35,24 @@ footer {
 	z-index: 10;
 }
 
+.header-mobile {
+	display: none;
+}
+
+.header-desktop {
+	display: inline;
+}
+
+@media screen and (max-width: 600px) {
+	.header-mobile {
+		display: inline;
+	}
+
+	.header-desktop {
+		display: none;
+	}
+}
+
 .badge {
 	padding: .5em .7em;
 }

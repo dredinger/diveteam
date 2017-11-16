@@ -2,8 +2,7 @@
 	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	<a class="navbar-brand" href="{{ route('home') }}">Deep Blue Sea Foundation</a>
-	{{-- <div class="text-center">Test</div> --}}
+	<a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('/img/logo-sm.png') }}" class="pr-3" /><div class="header-desktop">Deep Blue Sea Foundation</div><div class="header-mobile">DBSF</div></a>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto justify-content-end w-100">
 		@if (Auth::check())

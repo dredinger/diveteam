@@ -22,9 +22,9 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer');
 
 Route::group(['prefix' => 'volunteer'], function () {
-	Route::get('assistant', 'VolunteerController@assistant');
-	Route::get('guide', 'VolunteerController@guide');
-	Route::get('diver', 'VolunteerController@diver');
+	Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
+	Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
+	Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
 });
 
 Route::get('/info', 'InfoController@index')->name('info');

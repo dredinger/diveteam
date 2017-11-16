@@ -6,6 +6,6 @@
 
 @section ('content')
 
-	
+	More information will be added here shortly!
 
 @endsection
