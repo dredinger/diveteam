@@ -25,6 +25,8 @@ Route::group(['prefix' => 'volunteer'], function () {
 	Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
 	Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
 	Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
+	Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
+	Route::post('contact', 'VolunteerController@store');
 });
 
 Route::get('/info', 'InfoController@index')->name('info');

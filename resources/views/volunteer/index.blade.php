@@ -6,7 +6,7 @@
 
 @section ('content')
 
-	<div class="card card-inverse card-primary mb-1 lead text-uppercase text-center font-weight-bold">
+	<div class="card card-inverse card-primary lead text-uppercase text-center font-weight-bold">
 		<div class="card-block">The mission of the Deep Blue Sea Foundation is to create experiences that inspire our guests to discover, explore, enjoy, and protect our aquatic world.</div>
 	</div>
 	

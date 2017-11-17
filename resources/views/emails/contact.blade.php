@@ -1,16 +1,8 @@
-@component('mail::message')
-# Introduction
+Deep Blue Sea Foundation,
 
-Thank you for registering, {{ $user->name }}!
-
-@component('mail::button', ['url' => 'https://laracasts.com'])
-Start Browsing
-@endcomponent
-
-@component('mail::panel', ['url' => ''])
-Some inspirational quote!
-@endcomponent
-
-Thanks,<br>
-{{ config('app.name') }}
-@endcomponent
+We have received an information request from {{ $name }} [ {{ $email }} ] regarding a position as a {{ $position }}.
+<br /><br />
+{{ $user_message }}
+<br /><br />
+Thanks,<br />
+Deep Blue Sea Foundation Admin
