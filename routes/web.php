@@ -19,19 +19,17 @@ Route::get('/downloads/{id}/{method?}', 'DownloadsController@getFile');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 
-Route::get('/volunteer', 'VolunteerController@index')->name('volunteer');
-
 Route::group(['prefix' => 'volunteer'], function () {
+	Route::get('', 'VolunteerController@index')->name('volunteer');
 	Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
 	Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
 	Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
-	Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
-	Route::post('contact', 'VolunteerController@store');
+	// Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
+	// Route::post('contact', 'VolunteerController@store');
 });
 
-Route::get('/info', 'InfoController@index')->name('info');
-
 Route::group(['prefix' => 'info'], function () {
+	Route::get('', 'InfoController@index')->name('info');
 	Route::get('trainers', 'InfoController@trainer')->name('trainers');
 	Route::get('feeds', 'InfoController@feeds')->name('feeds');
 });
@@ -51,8 +49,8 @@ Route::get('login', 'Auth\SessionsController@create')->name('login');
 Route::post('login', 'Auth\SessionsController@store');
 // Route::get('logout', 'Auth\SessionsController@destroy')->name('logout');
 
-Route::get('logout', function () {
+Route::post('logout', function () {
 	auth()->logout();
 	session()->flash('message', 'You are logged out!');
-	return redirect('/');
-});
+	return redirect(route('home'));
+})->name('logout');
