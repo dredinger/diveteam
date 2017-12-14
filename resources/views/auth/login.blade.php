@@ -9,19 +9,19 @@
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
 		{{ csrf_field() }}
 
-		<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+		{{-- <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 			<label for="name" class="col-form-label col-form-label-lg">Full Name</label>
 
 			<div class="col-md-12">
 				<input id="name" type="name" class="form-control form-control-lg" name="name" required autofocus>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-			<label for="password" class="col-form-label col-form-label-lg">Password</label>
+			<label for="password" class="col-form-label col-form-label-lg">Access Code</label>
 
 			<div class="col-md-12">
-				<input id="password" type="password" class="form-control form-control-lg" name="password" required>
+				<input id="password" type="password" class="form-control form-control-lg" name="password" placeholder="Access Code" required>
 
 				@if ($errors->has('password'))
 					<span class="help-block">
