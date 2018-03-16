@@ -6,8 +6,8 @@
 
 @section ('content')
 
-	<div class="table-responsive">
-		<table class="table table-hover table-striped">
+	<div class="table-responsive-xl">
+		<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
 					<th>Name</th>

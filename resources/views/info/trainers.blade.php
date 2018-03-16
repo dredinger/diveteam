@@ -8,8 +8,8 @@
 
 	Below you will find Academy Trainers' general availability and their contact information. Please click on a name to show their contact info.<br /><br />
 
-	<div class="table-responsive">
-		<table class="table table-striped">
+	<div class="table-responsive-xl">
+		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
 				@foreach ($days as $day)
@@ -26,10 +26,9 @@
 								@if ($trainer->availability[$i]->day_name == $day)
 									<a tabindex="0" href="#" data-trigger="focus" 
 									data-placement="top" data-toggle="popover" 
-									data-html="true" title="<h3><strong>{{ $trainer->name }}</strong></h3>" 
+									data-html="true" title="<h3 class='p-3'><strong>{{ $trainer->name }}</strong></h3>" 
 									data-content="<strong>Email:</strong> {{ $trainer->email }}<br /><strong>Phone:</strong> {{ phoneToReadable($trainer->phone) }}">
-										{{ $trainer->name }}
-									</a><br />
+										{{ $trainer->name }}</a><br />
 								@endif
 							@endfor
 						@endforeach

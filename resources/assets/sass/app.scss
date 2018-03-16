@@ -6,13 +6,189 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-top: 3rem;
+  font-family: 'Montserrat', "Helvetica Neue", Helvetica, sans-serif;
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
 
 footer {
+  font-family: 'Montserrat', sans-serif;
   padding-top: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.active {
+  border-bottom: 2px #fff;
+}
+
+.main-content {
+  margin-top: 25px;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+#divide {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+#flash-message {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 10;
+}
+
+.header-mobile {
+  display: none;
+}
+
+.header-desktop {
+  display: inline;
+}
+
+@media screen and (max-width: 600px) {
+  .header-mobile {
+    display: inline;
+  }
+
+  .header-desktop {
+    display: none;
+  }
+}
+
+.badge {
+  padding: .5em .7em;
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+  color: rgba(255,255,255,1);
+}
+
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* DSO CUSTOMIZATION
+-------------------------------------------------- */
+
+.toggle {
+  display: none;
+}
+
+.toggle, .toggle:after, .toggle:before, .toggle *, .toggle *:after, .toggle *:before, .toggle + .toggle-btn {
+  box-sizing: border-box;
+}
+
+.toggle::-moz-selection, .toggle:after::-moz-selection, .toggle:before::-moz-selection, .toggle *::-moz-selection, .toggle *:after::-moz-selection, .toggle *:before::-moz-selection, .toggle + .toggle-btn::-moz-selection {
+  background: none;
+}
+.toggle::selection, .toggle:after::selection, .toggle:before::selection, .toggle *::selection, .toggle *:after::selection, .toggle *:before::selection, .toggle + .toggle-btn::selection {
+  background: none;
+}
+.toggle + .toggle-btn {
+  outline: 0;
+  display: block;
+  width: 8em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.toggle + .toggle-btn:after, .toggle + .toggle-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 25%;
+  height: 100%;
+}
+.toggle + .toggle-btn:after {
+  left: 0;
+}
+.toggle + .toggle-btn:before {
+  display: none;
+}
+.toggle:checked + .toggle-btn:after {
+  left: 75%;
+}
+.toggle-ios + .toggle-btn {
+  background: red;
+  border-radius: 2em;
+  padding: 2px;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+  border: 1px solid #e8eae9;
+}
+.toggle-ios + .toggle-btn:after {
+  border-radius: 2em;
+  background: #fbfbfb;
+  -webkit-transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.6s ease, margin 0.3s ease;
+  transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.6s ease, margin 0.3s ease;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+.toggle-ios + .toggle-btn:hover:after {
+  will-change: padding;
+}
+.toggle-ios + .toggle-btn:active {
+  box-shadow: inset 0 0 0 2em #e8eae9;
+}
+.toggle-ios + .toggle-btn:active:after {
+  padding-right: .8em;
+}
+.toggle-ios:checked + .toggle-btn {
+  background: #86d993;
+}
+.toggle-ios:checked + .toggle-btn:active {
+  box-shadow: none;
+}
+.toggle-ios:checked + .toggle-btn:active:after {
+  margin-left: -.8em;
+}
+
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }
 
 
@@ -95,15 +271,4 @@ footer {
   .featurette-heading {
     margin-top: 7rem;
   }
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
-  text-align: center;
 }

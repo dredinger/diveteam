@@ -8,8 +8,8 @@
 
 	Below, you will find a list of days, and the exhibits that are fed as part of the dive conducted on that particular day.<br /><br />
 
-	<div class="table-responsive">
-		<table class="table table-striped">
+	<div class="table-responsive-xl">
+		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
 				@foreach ($days as $day)
