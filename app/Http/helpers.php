@@ -1,5 +1,9 @@
 <?php
 
+function setActiveMenu($routeName, $class = ' active') {
+	return ((Route::currentRouteName() == $routeName) || (Request::segment(1) == $routeName)) ? $class : '';
+}
+
 function phoneToReadable($number, $para = true) {
 	$areaCode = substr($number, 0, 3);
 	$startThree = substr($number, 3, 3);

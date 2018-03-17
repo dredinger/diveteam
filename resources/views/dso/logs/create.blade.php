@@ -8,39 +8,7 @@ DSO Administration
 
 @include ('layouts.errors')
 
-<div class="table-responsive">
-	<table class="table table-hover table-striped">
-		<thead>
-			<tr>
-				<th>&nbsp;</th>
-				<th class="text-right">Options</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td contenteditable="false">Logs</td>
-				<td class="text-right">
-				<h5>
-					<a class="badge badge-success" id="View" href="/dso/logs/add">Add New</a>
-					<span id="divide"></span>
-					<a class="badge badge-primary" id="View" href="/dso/logs/all">View All</a>
-				</h5>
-				</td>
-			</tr>
-			<tr>
-				<td contenteditable="false">Notes</td>
-				<td class="text-right">
-				<h5>
-					<a class="badge badge-success" id="View" href="/dso/notes/add">Add New</a>
-					<span id="divide"></span>
-					<a class="badge badge-primary" id="View" href="/dso/logs/all">View All</a>
-				</h5>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<form action="/dso/logs/add" method="POST" style="width: 100%;" enctype="multipart/form-data">
+<form action="{{ route('dso.logs.add') }}" method="POST" style="width: 100%;" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	<div class="card mt-4 card-outline-primary">
 		<div class="card-header card-primary card-inverse"><h2>Daily Operations Log</h2></div>
@@ -135,7 +103,7 @@ DSO Administration
 			</div>
 			@endif
 			<div class="form-group row">
-				<label for="compressor_hours" class="col-lg-3 col-form-label"><strong>Compressor Hours</strong></label>
+				<label for="notes" class="col-lg-3 col-form-label"><strong>Notes</strong></label>
 				<div class="col-lg-9">
 					<textarea class="form-control" name="notes" id="notes" placeholder="Write down any notes for the day..."></textarea>
 				</div>

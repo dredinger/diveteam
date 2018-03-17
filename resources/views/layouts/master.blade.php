@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -9,7 +9,7 @@
 		<title>Deep Blue Sea Foundation</title>
 
 		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
@@ -40,16 +40,15 @@
 
 		@yield ('header')
 
-		<main role="main" class="container">
-			@if (View::hasSection('title'))
-				<div class="col-lg-12 text-center">
-					<hr>
-					<h2>
-						@yield ('title')
-					</h2>
-					<hr style="padding-bottom: 1em;">
+		@if (View::hasSection('title'))
+			<div class="col-lg-12 section-title">
+				<div class="container">
+					@yield ('title')
 				</div>
-			@endif
+			</div>
+		@endif
+
+		<main role="main" class="container">
 
 			@yield ('content')
 			

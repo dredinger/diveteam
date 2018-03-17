@@ -1,7 +1,7 @@
-@extends ('layouts.master')
+@extends ('layouts.dso.master')
 
 @section ('title')
-	DSO Administration
+	Logs Administration
 @endsection
 
 @section ('content')
