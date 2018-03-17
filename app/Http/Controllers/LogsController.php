@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Log;
+use App\Http\Requests\LogRequest;
 
 class LogsController extends Controller
 {
@@ -33,39 +33,41 @@ class LogsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LogRequest $request)
     {
-        // $this->validate($request, [
-        //     'psi_res' => 'required|digits:4',
-        //     'psi_uts' => 'required|digits:4',
-        //     'psi_sw' => 'required|digits:4',
-        //     'psi_dr' => 'required|digits:4',
-        //     'psi_bank' => 'required|digits:4',
-        //     'psi_oxy_third' => 'required|digits:4',
-        //     'psi_oxy_second' => 'required|digits:4',
-        // ]);
-
-        if (isDay(4)) {
-            $this->validate($request, [
-                'compressor_hours' => 'required|digits:4'
-            ]);
-        }
-        if (isDay(5) && $request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
-            $this->validate($request, [
-                'diveboard_picture' => 'required|image'
-            ]);
-        } else {
-            dd('error!');
+        $pictureID = null;
+        $noteID = null;
+        if ($request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
+            $pic = new Log;
+            $pictureID = $pic->setup($request);
         }
 
-        $log = new Log;
-        $log->setup($request);
+        $masks = ($request->jumppack_masks == null) ? '0' : '1';
+        $disinfectants = ($request->disinfectants == null) ? '0' : '1';
+        $sd_checklist = ($request->sd_checklist == null) ? '0' : '1';
+        $aed = ($request->aed == null) ? '0' : '1';
 
-        // $this->log->create($request);
+        $log = Log::create([
+            'ip' => $request->ip(),
+            'psi_res' => $request->psi_res,
+            'psi_uts' => $request->psi_uts,
+            'psi_sw' => $request->psi_sw,
+            'psi_dr' => $request->psi_dr,
+            'psi_bank' => $request->psi_bank,
+            'jumppack_masks' => $masks,
+            'disinfectants' => $disinfectants,
+            'sd_checklist' => $sd_checklist,
+            'aed' => $aed,
+            'psi_oxy_third' => $request->psi_oxy_third,
+            'psi_oxy_second' => $request->psi_oxy_second,
+            'compressor_hours' => $request->compressor_hours,
+            'pictureid' => $pictureID,
+            'noteid' => $noteID
+        ]);
 
         session()->flash('message', 'Your log has been saved.');
-
-        return redirect()->back();
+        dd($log);
+        return redirect()->route('dso.logs.view', $log);
     }
 
     /**
@@ -76,7 +78,10 @@ class LogsController extends Controller
      */
     public function show($id)
     {
-        //
+        if (!$log = Log::find($id))
+            return redirect()->route('dso.logs')->with('error', 'Log does not exist!');
+        else
+            return view('dso.logs.show', compact('log'));
     }
 
     /**

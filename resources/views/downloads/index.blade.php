@@ -5,7 +5,6 @@
 @endsection
 
 @section ('content')
-
 	@if ($downloads->count() == 0)
 		<tr>
 			<td colspan="2">No downloads exist.</td>

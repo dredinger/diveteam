@@ -14,19 +14,19 @@
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link active" href="#">
+						<a class="nav-link{{ setActiveMenu('dso.home') }}" href="{{ route('dso.home') }}">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm-5.6-4.29a9.95 9.95 0 0 1 11.2 0 8 8 0 1 0-11.2 0zm6.12-7.64l3.02-3.02 1.41 1.41-3.02 3.02a2 2 0 1 1-1.41-1.41z"/></svg>
 							Dashboard
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('dso.logs') }}">
+						<a class="nav-link{{ setActiveMenu('dso.logs') }}" href="{{ route('dso.logs') }}">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1 4h2v2H1V4zm4 0h14v2H5V4zM1 9h2v2H1V9zm4 0h14v2H5V9zm-4 5h2v2H1v-2zm4 0h14v2H5v-2z"/></svg>
 							Logs
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('dso.notes') }}">
+						<a class="nav-link{{ setActiveMenu('dso.notes') }}" href="{{ route('dso.notes') }}">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 18h12V6h-4V2H4v16zm-2 1V0h12l4 4v16H2v-1z"/></svg>
 							Notes
 						</a>

@@ -1,14 +1,15 @@
-@extends ('layouts.master')
+@extends ('layouts.dso.master')
 
 @section ('title')
-	DSO Administration
+	Notes Administration
 @endsection
 
 @section ('content')
 
 	<div class="table-responsive list-group">
-		<a href="/dso/logs" class="list-group-item">Logs</a>
-		<a href="/dso/notes" class="list-group-item">Notes</a>
+		<a href="{{ route('dso.notes') }}" class="list-group-item">View All Notes</a>
+		<a href="{{ route('dso.notes.latest') }}" class="list-group-item">View Latest Note</a>
+		<a href="{{ route('dso.notes.add') }}" class="list-group-item">Add New Note</a>
 	</div>
 
 @endsection

@@ -1,7 +1,9 @@
 <?php
 
 function setActiveMenu($routeName, $class = ' active') {
-	return ((Route::currentRouteName() == $routeName) || (Request::segment(1) == $routeName)) ? $class : '';
+	$current = Route::currentRouteName();
+	$segment = Request::segment(1);
+	return (($current == $routeName) || (strpos($routeName, $segment) !== false)) ? $class : '';
 }
 
 function phoneToReadable($number, $para = true) {

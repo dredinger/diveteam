@@ -15,7 +15,11 @@
 		$('#flash-message').delay(500).fadeIn('slow', function () {
 			$(this).delay(2000).fadeOut('slow');
 		});
-		$('[data-toggle="popover"]').popover();
+	});
+	$(function () {
+		$('[data-toggle="popover"]').popover({
+			trigger: 'focus'
+		});
 	});
 	</script>
 

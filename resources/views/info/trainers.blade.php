@@ -24,10 +24,7 @@
 						@foreach ($trainers as $trainer)
 							@for ($i = 0; $i < $trainer->availability->count(); $i++)
 								@if ($trainer->availability[$i]->day_name == $day)
-									<a tabindex="0" href="#" data-trigger="focus" 
-									data-placement="top" data-toggle="popover" 
-									data-html="true" title="<h3 class='p-3'><strong>{{ $trainer->name }}</strong></h3>" 
-									data-content="<strong>Email:</strong> {{ $trainer->email }}<br /><strong>Phone:</strong> {{ phoneToReadable($trainer->phone) }}">
+									<a tabindex="0" href="#" data-trigger="focus" data-placement="top" data-toggle="popover" data-html="true" title="{{ $trainer->name }}" data-content="<strong>Email:</strong> {{ $trainer->email }}<br /><strong>Phone:</strong> {{ phoneToReadable($trainer->phone) }}">
 										{{ $trainer->name }}</a><br />
 								@endif
 							@endfor
