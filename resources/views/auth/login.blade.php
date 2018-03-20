@@ -9,47 +9,22 @@
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
 		{{ csrf_field() }}
 
-		{{-- <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-			<label for="name" class="col-form-label col-form-label-lg">Full Name</label>
-
-			<div class="col-md-12">
-				<input id="name" type="name" class="form-control form-control-lg" name="name" required autofocus>
-			</div>
-		</div> --}}
-
-		<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-			<label for="password" class="col-form-label col-form-label-lg">Access Code</label>
-
-			<div class="col-md-12">
-				<input id="password" type="password" class="form-control form-control-lg" name="password" placeholder="Access Code" required>
-
-				@if ($errors->has('password'))
-					<span class="help-block">
-						<strong>{{ $errors->first('password') }}</strong>
-					</span>
-				@endif
-			</div>
-		</div>
-
 		<div class="form-group">
-			<div class="col-md-6 col-md-offset-4">
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-					</label>
+			<label for="password">Access Code</label>
+			<input id="password" type="password" class="form-control form-control-lg{{ count($errors) ? ' is-invalid' : '' }}" name="password" placeholder="Access Code" required autofocus />
+
+			@if (count($errors))
+				<div class="invalid-feedback">
+					<strong>{{ $errors->first('message') }}</strong>
 				</div>
-			</div>
+			@endif
 		</div>
 
 		<div class="form-group">
-			<div class="col-md-12">
-				<button type="submit" class="btn btn-primary">
-					Login
-				</button>
-			</div>
+			<button type="submit" class="btn btn-primary btn-lg btn-block">
+				Login
+			</button>
 		</div>
 	</form>
-
-	@include ('layouts.errors')
 
 @endsection

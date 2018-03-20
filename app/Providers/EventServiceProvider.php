@@ -13,6 +13,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        'App\Events\DownloadCounter' => [
+            'App\Listeners\IncrementDownloadCounter'
+        ],
         'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAttempt',
         ],

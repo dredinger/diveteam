@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Download;
 use Illuminate\Http\Request;
+use App\Events\DownloadCounter;
 
 class DownloadsController extends Controller
 {
 
-    protected $_file;
+    protected $_file, $_name, $_location, $_headers = [];
 
     public function __construct()
     {
@@ -29,43 +30,45 @@ class DownloadsController extends Controller
 
     public function getFile($id, $method = 'view')
     {
-        if (! $this->_file = Download::visible()->find($id))
+        $this->_file = Download::visible()->find($id);
+        if (! $this->_file)
             return redirect()->route('downloads')->with('error', 'File does not exist!');
 
-        if (ends_with(request()->path(), 'download') || $method == 'download') {
-            return $this->fileDownload();
+        if (! $this->prepFile()) {
+            return redirect()->back()->with('error', 'File does not exist!');
         } else {
-            return $this->fileView();
+            event(new DownloadCounter($this->_file));
+
+            if (ends_with(request()->path(), 'download') || $method == 'download')
+                return $this->fileDownload();
+            else
+                return $this->fileView();
         }
+
+    }
+
+    public function prepFile()
+    {
+        $this->_location = $this->_file->location . '.' . $this->_file->type;
+        $this->_name = $this->_file->name . '.' . $this->_file->type;
+        $this->_location = storage_path() . '/app/public/files/' . $this->_location;
+
+        $this->_headers = [];
+
+        if (! \File::exists($this->_location))
+            return false;
+        else
+            return true;
     }
 
     public function fileView()
     {
-        $location = storage_path() . '/app/public/files/' . $this->_file->location . '.' . $this->_file->type;
-        $name = $this->_file->name . '.' . $this->_file->type;
-
-        $headers = [
-            'Content-Type: application/pdf',
-            'Content-Disposition: inline; filename="' . $name . '"'
-        ];
-
-        if (! \File::exists($location))
-            return redirect()->back()->with('error', 'File does not exist!');
-
-        return response()->file($location, $headers);
+        return response()->file($this->_location, $this->_headers);
     }
 
     public function fileDownload()
     {
-        $location = storage_path() . '/app/public/files/' . $this->_file->location . '.' . $this->_file->type;
-        $name = $this->_file->name . '.' . $this->_file->type;
-
-        $headers = [
-            'Content-Type: application/pdf',
-            'Content-Disposition: inline; filename="' . $name . '"'
-        ];
-
-        return response()->download($location, $name, $headers);
+        return response()->download($this->_location, $this->_name, $this->_headers);
     }
 
 }
