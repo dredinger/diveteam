@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DBSF DSO Admin</a>
-	<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DSO Admin</a>
+	<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
 	<ul class="navbar-nav px-3">
 		<li class="nav-item text-nowrap">
 			<a class="nav-link" href="{{ route('home') }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.828 9l6.071-6.071-1.414-1.414L0 10l.707.707 7.778 7.778 1.414-1.414L3.828 11H20V9H3.828z"/></svg> Return to Main</a>

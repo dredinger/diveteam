@@ -1,7 +1,7 @@
 	<footer>
 		<div class="container">
 			<p class="float-right"><a href="#">Back to top</a></p>
-			<p>&copy; 2017 Deep Blue Sea Foundation</p>
+			<p>&copy; 2018 Deep Blue Sea Foundation</p>
 		</div>
 	</footer>
 
