@@ -1,7 +1,15 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Logs Administration - Add Daily Log
+	Logs - Add Daily Log
+@endsection
+
+@section ('extra-nav')
+<div class="btn-toolbar mb-2 mb-md-0">
+	<div class="btn-group mr-2">
+		<a href="{{ route('dso.logs') }}" class="btn btn-sm btn-outline-secondary">View Logs</a>
+	</div>
+</div>
 @endsection
 
 @section ('content')
@@ -46,9 +54,14 @@
 				<label class="toggle-btn" for="sd_checklist"></label>
 		</div>
 		<div class="form-group">
-			<label for="aed"><strong>All Disinfectants Checked</strong></label>
-			<input type="checkbox" name="aed" id="aed" value="1" class="toggle toggle-ios" />
-				<label class="toggle-btn" for="aed"></label>
+			<label for="aed_third"><strong>3rd Floor AED Status</strong></label>
+			<input type="checkbox" name="aed_third" id="aed_third" value="1" class="toggle toggle-ios" />
+				<label class="toggle-btn" for="aed_third"></label>
+		</div>
+		<div class="form-group">
+			<label for="aed_second"><strong>2nd Floor AED Status</strong></label>
+			<input type="checkbox" name="aed_second" id="aed_second" value="1" class="toggle toggle-ios" />
+				<label class="toggle-btn" for="aed_second"></label>
 		</div>
 		<div class="form-group">
 			<label for="psi_oxy_third"><strong>3rd Floor O<sub>2</sub> Kit PSI</strong></label>
@@ -78,7 +91,8 @@
 			<textarea class="form-control" name="notes" id="notes" placeholder="Write down any notes for the day...">{{ old('notes') }}</textarea>
 		</div>
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Submit Log</button>
+			<button type="submit" class="btn btn-primary">Submit Log</button>&nbsp;
+			<a href="{{ route('dso.home') }}" class="btn btn-outline-danger">Cancel</a>
 		</div>
 	</form>
 
@@ -87,29 +101,27 @@
 @section ('extra')
 	<script>
 	$(function() {
+		$(document).on('change', ':file', function() {
+			var input = $(this),
+			numFiles = input.get(0).files ? input.get(0).files.length : 1,
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+			input.trigger('fileselect', [numFiles, label]);
+		});
 
-	$(document).on('change', ':file', function() {
-		var input = $(this),
-		numFiles = input.get(0).files ? input.get(0).files.length : 1,
-		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		input.trigger('fileselect', [numFiles, label]);
-	});
+		$(document).ready( function() {
+			$(':file').on('fileselect', function(event, numFiles, label) {
 
-	$(document).ready( function() {
-		$(':file').on('fileselect', function(event, numFiles, label) {
+				var input = $(this).parents('.form-group').find(':text'),
+				log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-			var input = $(this).parents('.form-group').find(':text'),
-			log = numFiles > 1 ? numFiles + ' files selected' : label;
+				if( input.length ) {
+					input.val(log);
+				} else {
+					if( log ) alert(log);
+				}
 
-			if( input.length ) {
-				input.val(log);
-			} else {
-				if( log ) alert(log);
-			}
-
+			});
 		});
 	});
-
-	})
 	</script>
 @endsection

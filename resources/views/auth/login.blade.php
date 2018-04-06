@@ -15,7 +15,7 @@
 
 		<div class="form-group">
 			<label for="password">Access Code</label>
-			<input id="password" type="password" class="form-control form-control-lg{{ count($errors) ? ' is-invalid' : '' }}" name="password" placeholder="Access Code" required autofocus />
+			<input id="password" type="password" class="form-control form-control-lg{{ count($errors) ? ' is-invalid' : '' }}" name="password" placeholder="Enter the access code given to you by the DSO." required autofocus />
 
 			@if (count($errors))
 				<div class="invalid-feedback">

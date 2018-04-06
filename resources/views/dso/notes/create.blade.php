@@ -1,7 +1,15 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Notes Administration - Add Notes
+	Notes - Create Note
+@endsection
+
+@section ('extra-nav')
+<div class="btn-toolbar mb-2 mb-md-0">
+	<div class="btn-group mr-2">
+		<a href="{{ route('dso.notes') }}" class="btn btn-sm btn-outline-secondary">View Notes</a>
+	</div>
+</div>
 @endsection
 
 @section ('content')
@@ -17,7 +25,8 @@
 		</div>
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Submit Note</button>
+			<button type="submit" class="btn btn-primary">Submit Note</button>&nbsp;
+			<a href="{{ route('dso.home') }}" class="btn btn-outline-danger">Cancel</a>
 		</div>
 
 	</form>

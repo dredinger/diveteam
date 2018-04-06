@@ -49,15 +49,16 @@ Route::domain('localhost')->group(function () {
 Route::domain('dso.localhost')->group(function () {
 	Route::name('dso.')->group(function () {
 		Route::get('/', 'DsoController@index')->name('home');
+		Route::get('/search', 'DsoController@search')->name('index.search');
 		Route::get('/logs', 'LogsController@index')->name('logs');
 		Route::get('/logs/{id}', 'LogsController@show')->name('logs.view');
-		Route::get('/logs/latest', 'LogsController@index')->name('logs.latest');
 		Route::get('/logs/add', 'LogsController@create')->name('logs.add');
 		Route::get('/notes', 'NotesController@index')->name('notes');
-		Route::get('/notes/latest', 'NotesController@index')->name('notes.latest');
+		Route::get('/notes/{id}', 'NotesController@show')->name('notes.view');
 		Route::get('/notes/add', 'NotesController@create')->name('notes.add');
 	});
 	
+	Route::post('/search', 'DsoController@search');
 	Route::post('/logs/add', 'LogsController@store');
 	Route::post('/notes/add', 'NotesController@store');
 });

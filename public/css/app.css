@@ -40,6 +40,19 @@ nav > div.container {
 	margin-bottom: 20px;
 }
 
+.feather {
+  width: 23px;
+  height: 23px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  display: inline-block;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+
 .nav-link {
 	font-weight: bold;
 	color: #4D5960;
@@ -60,18 +73,6 @@ nav > div.container {
 
 .list-group-item {
 	padding: 1.25rem 1.25rem;
-}
-
-svg {
-	width: 25px;
-	height: 25px;
-	fill: #384348;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 14px;
-}
-svg:hover {
-	fill: #000;
 }
 
 #divide {

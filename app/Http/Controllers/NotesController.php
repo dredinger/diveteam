@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Note;
+use App\Repositories\Notes;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class NotesController extends Controller
 {
@@ -11,9 +14,10 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Notes $notes)
     {
-        return view('dso.notes.index');
+        $notes = $notes->all();
+        return view('dso.notes.index', compact('notes'));
     }
 
     /**

@@ -12,6 +12,7 @@ body {
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding-bottom: 3rem;
 	background-color: #f1f3f5;
+	font-size: .875rem;
 }
 
 footer {
@@ -32,6 +33,18 @@ nav > div.container {
 	border-bottom: 1px solid #ecf0f1;
 }
 
+td.wordwrap {
+	white-space: normal !important;
+	word-wrap: break-word;
+}
+table {
+  table-layout: fixed;
+}
+
+.card > a {
+	text-decoration: none;
+}
+
 .navbar-brand {
 	font-size: 26px;
 }
@@ -49,11 +62,6 @@ nav > div.container {
 	color: #4D5960;
 }
 
-.active {
-	color: #1c2024;
-	border-bottom: 2px solid #0275d8;
-}
-
 .main-content {
 	margin-top: 25px;
 }
@@ -67,14 +75,6 @@ nav > div.container {
 	padding: 1.25rem 1.25rem;
 }
 
-svg {
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 14px;
-}
-
 #divide {
 	padding-right: 12px;
 	padding-left: 12px;
@@ -82,8 +82,8 @@ svg {
 
 #flash-message {
 	position: absolute;
-	top: 50px;
-	right: 20px;
+	top: 100px;
+	right: 200px;
 	z-index: 10;
 }
 
@@ -203,15 +203,15 @@ svg {
 	display: block;
 }
 
-
-
-
-
-
 .feather {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 /*

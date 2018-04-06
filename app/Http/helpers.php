@@ -1,5 +1,23 @@
 <?php
 
+function verifyDsoChecks($input) {
+	$checking = [
+		'jumppack_masks',
+		'disinfectants',
+		'sd_checklist',
+		'aed_third',
+		'aed_second'
+	];
+
+	foreach($checking as $check) {
+		if ($input->$check != 1)
+			return false;
+	}
+
+	return true;
+
+}
+
 function setActiveMenu($routeName, $class = ' active') {
 	$current = Route::currentRouteName();
 	$segment = Request::segment(1);

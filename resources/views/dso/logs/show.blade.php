@@ -1,7 +1,16 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Logs Administration - Log #: {{ $log->id }}
+	Logs - Log #: {{ $log->id }}
+@endsection
+
+@section ('extra-nav')
+<div class="btn-toolbar mb-2 mb-md-0">
+	<div class="btn-group mr-2">
+		<a href="{{ route('dso.logs') }}" class="btn btn-sm btn-outline-secondary">View Logs</a>
+		<a href="{{ route('dso.logs.add') }}" class="btn btn-sm btn-outline-secondary">Add Daily Log</a>
+	</div>
+</div>
 @endsection
 
 @section ('content')

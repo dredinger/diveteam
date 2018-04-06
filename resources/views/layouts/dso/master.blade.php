@@ -5,9 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<meta name="robots" content="noindex, nofollow">
 		@yield ('meta-tags')
 
-	<title>Deep Blue Sea Foundation DSO Administration</title>
+	<title>DSO Administration</title>
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -46,15 +47,9 @@
 				@yield ('title')
 			</h1>
 			@endif
-			<div class="btn-toolbar mb-2 mb-md-0">
-				<div class="btn-group mr-2">
-					<button class="btn btn-sm btn-outline-secondary">Share</button>
-					<button class="btn btn-sm btn-outline-secondary">Export</button>
-				</div>
-				<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-					This week
-				</button>
-			</div>
+			
+			@yield ('extra-nav')
+
 		</div>
 
 		@yield ('content')
