@@ -67,7 +67,7 @@
 		</ul>
 		<ul class="navbar navbar-nav ml-auto">
 			<li class="nav-item">
-				<a class="nav-link{{ setActiveMenu('login') }}" href="{{ route('login') }}">Login</a>
+				<a rel="nofollow" class="nav-link{{ setActiveMenu('login') }}" href="{{ route('login') }}">Login</a>
 			</li>
 		@endif
 		@endif

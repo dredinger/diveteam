@@ -1,6 +1,10 @@
-@extends ('layouts.master')
+@extends('layouts.master')
 
-@section ('title')
+@section('meta-tags')
+	<meta name="robots" content="noindex, nofollow">
+@endsection
+
+@section('title')
 	Login
 @endsection
 
