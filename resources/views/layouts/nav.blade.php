@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
 <div class="container">
 	<a class="navbar-brand" href="{{ route('home') }}">
-		<img src="{{ asset('/img/logo-sm.png') }}" class="pr-2" />DBSF
+		<img src="{{ asset('/img/logo-sm-c.png') }}" class="pr-2" />DBSF
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

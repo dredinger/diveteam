@@ -6,7 +6,7 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img class="d-block w-100" src="{{ asset('/img/carousel/1.jpg') }}" alt="First slide">
+			<img class="d-block w-100" src="{{ asset('/img/carousel/1c.jpg') }}" alt="First slide">
 			<div class="carousel-caption d-none d-md-block">
 				<h1>Welcome to the new (and improved!) Deep Blue Sea Foundation website!</h1>
 				<p>If you're here for some info, please check the links at the top of the page. If you have questions about the Foundation, please use the button below to be sent to the information page.</p>
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="carousel-item">
-			<img class="d-block w-100" src="{{ asset('/img/carousel/2.jpg') }}" alt="Second slide">
+			<img class="d-block w-100" src="{{ asset('/img/carousel/2c.jpg') }}" alt="Second slide">
 			<div class="carousel-caption d-none d-md-block">
 				<h1>Who We Are</h1>
 				<p>Have you ever wondered just what the DBSF dive team does? Click the button below to learn more!</p>
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="carousel-item">
-			<img class="d-block w-100" src="{{ asset('/img/carousel/3.jpg') }}" alt="Third slide">
+			<img class="d-block w-100" src="{{ asset('/img/carousel/3c.jpg') }}" alt="Third slide">
 			<div class="carousel-caption d-none d-md-block text-right">
 				<h1>Become a volunteer diver today!</h1>
 				<p>You can do more in the future by helping out today. Click the button below to get started!</p>
