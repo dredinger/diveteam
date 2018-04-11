@@ -1,7 +1,7 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Dashboard - Searching...
+	Dashboard - Searching for {{ $date }}...
 @endsection
 
 @section ('content')

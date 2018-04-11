@@ -32,11 +32,11 @@ class DsoController extends Controller
 		$query = DB::table('logs');
 
 		if (str_is('today', $input))
-			$date = Carbon::now()->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::now()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
 		else if (str_is('yesterday', $input))
-			$date = Carbon::yesterday()->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::yesterday()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
 		else
-			$date = Carbon::parse($input)->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::parse($input)->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
 
 		$query->whereDate('created_at', $date);
 		
@@ -44,7 +44,7 @@ class DsoController extends Controller
 
 		// dd($logs);
 
-		return view('dso.search', compact('logs'));
+		return view('dso.search', compact('logs', 'date'));
 	}
 
 }
