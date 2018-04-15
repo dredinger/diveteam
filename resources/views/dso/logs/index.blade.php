@@ -43,6 +43,10 @@
 			@endforeach
 			</tbody>
 		</table>
+
+		<nav aria-label="All Logs Navigation">
+			{{ $logs->links('vendor.pagination.bootstrap-4') }}
+		</nav>
 	</div>
 
 @endsection

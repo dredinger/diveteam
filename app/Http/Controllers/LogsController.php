@@ -16,7 +16,7 @@ class LogsController extends Controller
      */
     public function index(Logs $logs)
     {
-        $logs = $logs->all();
+        $logs = $logs->paged(10);
         return view('dso.logs.index', compact('logs'));
     }
 

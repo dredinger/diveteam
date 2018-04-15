@@ -24,10 +24,6 @@ main.container {
 	background-color: #f1f3f5;
 }
 
-nav {
-	background-color: #fff;
-}
-
 nav > div.container {
 	background-color: #fff;
 	border-bottom: 1px solid #ecf0f1;
