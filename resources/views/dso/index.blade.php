@@ -11,10 +11,10 @@
 		@php
 			if (!verifyDsoChecks($log)) {
 				$border = 'danger';
-				$status = '/feather/feather-sprite.svg#x-circle';
+				$status = 'x';
 			} else {
 				$border = 'success';
-				$status = '/feather/feather-sprite.svg#check-circle';
+				$status = 'check';
 			}
 		@endphp
 		<div class="card border-{{ $border }}">
@@ -22,7 +22,7 @@
 			<div class="card-header">Log #{{ $log->id }}</div>
 			<div class="card-body">
 				<p class="card-text text-center">
-					<svg class="feather"><use xlink:href="{{ asset($status) }}"/></svg>
+					<svg class="feather"><use xlink:href="{{ asset('/feather/feather-sprite.svg#' . $status . '-circle') }}"/></svg>
 				</p>
 			</div>
 			<div class="card-footer">
@@ -32,5 +32,4 @@
 		</div>
 	@endforeach
 	</div>
-
 @endsection

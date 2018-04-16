@@ -97,6 +97,34 @@ table {
 	height: auto;
 }
 
+.loading-indicator {
+	width: 100%;
+}
+
+.loading-indicator .loading-wrap {
+	position: absolute;
+	left: 0;
+	right: 0;
+	background: #ececec;
+	height: 8px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.loading-indicator .loading-wrap .with-back {
+	position: static;
+}
+
+.loading-indicator .loading-wrap .loading-inner {
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 8px;
+	background: #0069ff;
+	border-radius: 8px;
+	transition: width 1.5s ease-in-out;
+}
+
 
 
 /* DSO CUSTOMIZATION
