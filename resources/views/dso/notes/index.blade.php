@@ -27,12 +27,11 @@
 			@foreach ($notes as $note)
 				@php
 					if (isset($note->log_id) && $note->log_id != 0) {
-						$route = route('dso.logs.view', ['id' => $note->log_id]);
+						$route = route('dso.logs.view', $note->log_id);
 						$link = '<a href="'.$route.'">View</a>';
 					} else {
 						$link = 'Not attached.';
 					}
-					
 				@endphp
 				<tr>
 					<td scope="row">{{ $note->updated_at->setTimeZone('America/Denver')->toDateString() }}</td>
@@ -43,6 +42,10 @@
 			@endforeach
 			</tbody>
 		</table>
+
+		<nav aria-label="All Logs Navigation">
+			{{ $notes->links('vendor.pagination.bootstrap-4') }}
+		</nav>
 	</div>
 
 @endsection

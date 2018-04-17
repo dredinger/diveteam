@@ -29,7 +29,8 @@ class DsoController extends Controller
 		$input = $request->search;
 		$format = 'Y-m-d';
 
-		$query = DB::table('logs');
+		$queryLogs = DB::table('logs')->orderBy('created_at', 'desc');
+		$queryNotes = DB::table('notes')->orderBy('created_at', 'desc');
 
 		if (str_is('today', $input))
 			$date = Carbon::now()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
@@ -38,13 +39,15 @@ class DsoController extends Controller
 		else
 			$date = Carbon::parse($input)->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
 
-		$query->whereDate('created_at', $date);
+		$queryLogs->whereDate('created_at', $date);
+		$queryNotes->whereDate('created_at', $date);
 		
-		$logs = $query->get();
+		$notes = $queryNotes->get();
+		$logs = $queryLogs->get();
 
 		// dd($logs);
 
-		return view('dso.search', compact('logs', 'date'));
+		return view('dso.search', compact('logs', 'notes', 'date'));
 	}
 
 }

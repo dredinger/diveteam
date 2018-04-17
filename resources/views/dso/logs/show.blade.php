@@ -1,7 +1,7 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Logs - Log #: {{ $log->id }}
+	Log #: {{ $log->id }}
 @endsection
 
 @section ('extra-nav')
@@ -15,16 +15,34 @@
 
 @section ('content')
 
-	<ul class="list-group">
-		<li class="list-group-item">RES Jumppack PSI: {{ $log->psi_res }}</li>
-		<li class="list-group-item">UTS Jumppack PSI: {{ $log->psi_uts }}</li>
-		<li class="list-group-item">SW Jumppack PSI: {{ $log->psi_sw }}</li>
-		<li class="list-group-item">DR Jumppack PSI: {{ $log->psi_dr }}</li>
-		<li class="list-group-item">{{ $log->psi_uts }}</li>
-		<li class="list-group-item">{{ $log->psi_uts }}</li>
-		<li class="list-group-item">{{ $log->psi_uts }}</li>
-		<li class="list-group-item">{{ $log->psi_uts }}</li>
-		<li class="list-group-item">{{ $log->psi_uts }}</li>
-	</ul>
+	@php
+	if (verifyDsoChecks($log)) {
+		$border = 'success';
+		$status = 'All Checks In Place';
+	} else {
+		$border = 'danger';
+		$status = 'Issue Found Regarding Checks';
+	}
+	@endphp
+
+	<div class="card border-{{ $border }}">
+		<div class="card-header">Log #{{ $log->id }} - Submitted on {{ $log->created_at }} ({{ $log->created_at->diffForHumans() }})</div>
+		<div class="card-body">
+			<p class="card-text">RES Jumppack PSI: {{ $log->psi_res }}</p>
+			<p class="card-text">UTS Jumppack PSI: {{ $log->psi_uts }}</p>
+			<p class="card-text">SW Jumppack PSI: {{ $log->psi_sw }}</p>
+			<p class="card-text">DR Jumppack PSI: {{ $log->psi_dr }}</p>
+			<p class="card-text">{{ $log->psi_uts }}</p>
+			<p class="card-text">{{ $log->psi_uts }}</p>
+			<p class="card-text">{{ $log->psi_uts }}</p>
+			<p class="card-text">{{ $log->psi_uts }}</p>
+			<p class="card-text">{{ $log->psi_uts }}</p>
+		</div>
+		@if ($log->pictureid)
+		<div class="card-footer">
+			<p class="card-text"><img src="{{ asset('storage/dso-pictures/' . $log->pictureid) }}" /></p>
+		</div>
+		@endif
+	</div>
 
 @endsection

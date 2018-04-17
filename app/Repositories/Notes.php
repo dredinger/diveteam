@@ -19,4 +19,10 @@ class Notes
 		return Note::latest()
 			->get();
 	}
+
+	public function paged($number = 10)
+	{
+		return Note::latest()
+			->paginate($number);
+	}
 }

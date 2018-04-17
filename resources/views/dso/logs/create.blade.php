@@ -88,7 +88,7 @@
 		@endif
 		<div class="form-group">
 			<label for="notes"><strong>Notes</strong></label>
-			<textarea class="form-control" name="notes" id="notes" placeholder="Write down any notes for the day...">{{ old('notes') }}</textarea>
+			<textarea class="form-control" rows="5" name="notes" id="notes" placeholder="Write down any notes for the day...">{{ old('notes') }}</textarea>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Submit Log</button>&nbsp;

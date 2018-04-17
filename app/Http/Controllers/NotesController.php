@@ -16,7 +16,7 @@ class NotesController extends Controller
      */
     public function index(Notes $notes)
     {
-        $notes = $notes->all();
+        $notes = $notes->paged();
         return view('dso.notes.index', compact('notes'));
     }
 

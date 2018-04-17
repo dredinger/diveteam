@@ -28,10 +28,10 @@ class Logs
 			->get();
 	}
 
-	public function paged($number = 5)
+	public function paged($number = 10)
 	{
 		return Log::latest()
-			->paginate($number);	
+			->paginate($number);
 	}
 	
 }

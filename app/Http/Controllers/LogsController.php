@@ -16,7 +16,7 @@ class LogsController extends Controller
      */
     public function index(Logs $logs)
     {
-        $logs = $logs->paged(10);
+        $logs = $logs->paged();
         return view('dso.logs.index', compact('logs'));
     }
 
@@ -67,7 +67,7 @@ class LogsController extends Controller
             'psi_oxy_second' => $request->psi_oxy_second,
             'compressor_hours' => $request->compressor_hours,
             'pictureid' => $pictureID,
-            'noteid' => $noteID
+            'note_id' => $noteID
         ])) {
             session()->flash('message', 'Your log has been saved.');
             dd($log);
