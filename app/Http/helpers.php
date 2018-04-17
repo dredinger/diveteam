@@ -1,5 +1,14 @@
 <?php
 
+function loadingBar($width = 50) {
+	return '
+	<div class="loading-indicator with-back">
+		<div class="loading-wrap">
+			<div class="loading-inner" style="width: ' . $width . '%"></div>
+		</div>
+	</div>';
+}
+
 function verifyDsoChecks($input) {
 	$checking = [
 		'jumppack_masks',

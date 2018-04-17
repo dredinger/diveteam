@@ -27,4 +27,11 @@ class Logs
 		return Log::latest()
 			->get();
 	}
+
+	public function paged($number = 5)
+	{
+		return Log::latest()
+			->paginate($number);	
+	}
+	
 }

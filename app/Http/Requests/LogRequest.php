@@ -24,7 +24,7 @@ class LogRequest extends FormRequest
     public function rules()
     {
         $compressor = (isDay(4)) ? ['compressor_hours' => 'required|digits:4'] : '';
-        $picture = (isDay(6)) ? ['diveboard_picture' => 'required|image']: '';
+        $picture = (isDay(2)) ? ['diveboard_picture' => 'required|image']: '';
 
         return [
             'psi_res' => 'required|digits:4',
