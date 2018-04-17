@@ -1,22 +1,53 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto-Thin.woff") format("woff"), url("../fonts/Roboto-Thin.ttf") format("truetype");
+	font-weight: 200; 
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff"), url("../fonts/Roboto-Light.ttf") format("truetype");
+	font-weight: 300; 
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto-Regular.ttf") format("truetype");
+	font-weight: 400; 
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff"), url("../fonts/Roboto-Medium.ttf") format("truetype");
+	font-weight: 500; 
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.ttf") format("truetype");
+	font-weight: 700; 
+}
+
+html {
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
 body {
-	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Roboto", sans-serif;
 	padding-bottom: 3rem;
-	background-color: #f1f3f5;
+	background-color: #ededed;
 }
 
 footer {
-	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding-top: 100px;
-}
-
-main.container {
-	background-color: #f1f3f5;
+	font-weight: 300;
+	font-size: 20px;
 }
 
 nav {
@@ -28,43 +59,40 @@ nav > div.container {
 }
 
 .navbar-brand {
-	font-size: 26px;
-	font-weight: bold;
+	font-size: 28px;
+	font-weight: 400;
 }
 
 .section-title {
 	background-color: #fff;
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: 300;
 	padding: 10px 0 20px 0;
 	text-align: left;
 	margin-bottom: 20px;
 }
 
 .feather {
-  width: 23px;
-  height: 23px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  display: inline-block;
-  margin-right: 14px;
-  vertical-align: middle;
+	width: 23px;
+	height: 23px;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	display: inline-block;
+	margin-right: 14px;
+	vertical-align: middle;
 }
 
 .nav-link {
-	font-weight: bold;
+	font-weight: 500;
 	color: #4D5960;
 }
 
 .container .navbar-nav > li > a.active {
 	color: #1c2024;
 	box-shadow: 0 -2px 0 0 #0275d8 inset;
-}
-
-.main-content {
-	margin-top: 25px;
 }
 
 .nav-item {
