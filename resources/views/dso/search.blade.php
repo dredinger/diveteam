@@ -8,7 +8,7 @@
 
 	<div class="row">
 		<div class="col">
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr class="font-weight-bold">
 					<th scope="col">Log ID</th>
@@ -30,8 +30,8 @@
 						$status = '/feather/feather-sprite.svg#check-circle';
 					}
 				@endphp
-					<tr>
-						<td><a href="{{ route('dso.logs.view', $log->id) }}">{{ $log->id }}</a></td>
+					<tr class="clickable-row" data-url="{{ route('dso.logs.view', $log->id) }}">
+						<td>{{ $log->id }}</td>
 						<td class="table-{{ $check }}"><svg class="feather"><use xlink:href="{{ asset($status) }}"/></svg></td>
 						<td>{{ \Carbon\Carbon::parse($log->updated_at)->setTimezone('America/Denver')->toDayDateTimeString() }}</td>
 					</tr>
@@ -41,7 +41,7 @@
 		</table>
 		</div>
 		<div class="col">
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr class="font-weight-bold">
 					<th scope="col">Note ID</th>
@@ -73,5 +73,17 @@
 		</table>
 		</div>
 	</div>
+
+@endsection
+
+@section ('extra')
+
+	<script>
+		$(document).ready(function ($) {
+			$('.clickable-row').click(function () {
+				window.location = $(this).data('url');
+			});
+		});
+	</script>
 
 @endsection

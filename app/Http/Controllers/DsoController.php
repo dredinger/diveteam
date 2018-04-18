@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Repositories\Logs;
+use App\Repositories\Notes;
 use Carbon\Carbon;
 
 class DsoController extends Controller
@@ -14,11 +15,12 @@ class DsoController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index(Logs $logs)
+	public function index(Logs $logs, Notes $notes)
 	{
 		$logs = $logs->lastFive();
+		$notes = $notes->lastFive();
 
-		return view('dso.index', compact('logs'));
+		return view('dso.index', compact('logs', 'notes'));
 	}
 
 	public function search(Request $request)
@@ -29,8 +31,8 @@ class DsoController extends Controller
 		$input = $request->search;
 		$format = 'Y-m-d';
 
-		$queryLogs = DB::table('logs')->orderBy('created_at', 'desc');
-		$queryNotes = DB::table('notes')->orderBy('created_at', 'desc');
+		$queryLogs = DB::table('logs')->orderBy('created_at', 'asc');
+		$queryNotes = DB::table('notes')->orderBy('created_at', 'asc');
 
 		if (str_is('today', $input))
 			$date = Carbon::now()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');

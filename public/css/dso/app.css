@@ -8,6 +8,10 @@
 	display: none;
 }
 
+.font-weight-thin {
+	font-weight: 200 !important;
+}
+
 body {
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding-bottom: 3rem;
@@ -131,6 +135,10 @@ table {
 	background-color: #efefef;
 }
 
+.clickable-row {
+	cursor: pointer;
+}
+
 
 
 /* DSO CUSTOMIZATION
@@ -242,6 +250,18 @@ table {
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+}
+
+.feather.feather-normal {
+	color: initial;
+}
+
+.feather.feather-success {
+	fill: rgba(100, 255, 100, .7);
+}
+
+.feather.feather-danger {
+	fill: rgba(255, 63, 63, .7);
 }
 
 /*

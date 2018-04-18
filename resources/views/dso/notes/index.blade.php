@@ -17,8 +17,9 @@
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th scope="col">Date</th>
+					<th scope="col">Create Date</th>
 					<th scope="col">Day of the Week</th>
+					<th scope="col">Last Update</th>
 					<th scope="col">Note</th>
 					<th scope="col">View Log</th>
 				</tr>
@@ -34,8 +35,9 @@
 					}
 				@endphp
 				<tr>
-					<td scope="row">{{ $note->updated_at->setTimeZone('America/Denver')->toDateString() }}</td>
-					<td>{{ $note->updated_at->setTimeZone('America/Denver')->format('l') }}</td>
+					<td scope="row">{{ $note->created_at->setTimeZone('America/Denver')->toFormattedDateString() }}</td>
+					<td>{{ $note->created_at->setTimeZone('America/Denver')->format('l') }}</td>
+					<td scope="row">{{ $note->updated_at->setTimeZone('America/Denver')->toFormattedDateString() }}</td>
 					<td class="wordwrap">{{ $note->content }}</td>
 					<td>{!! $link !!}</td>
 				</tr>

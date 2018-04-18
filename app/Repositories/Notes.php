@@ -14,6 +14,14 @@ class Notes
 		$this->redis = $redis;
 	}
 
+	public function lastFive()
+	{
+		return Note::latest()
+			->take(5)
+			->orderBy('created_at', 'desc')
+			->get();
+	}
+
 	public function all()
 	{
 		return Note::latest()
