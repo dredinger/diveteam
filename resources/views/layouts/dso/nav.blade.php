@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
 	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ route('dso.home') }}">DSO Admin</a>
-	<form action="{{ route('dso.index.search') }}" method="POST" class="w-100">
+	<form action="{{ route('dso.search') }}" method="POST" class="w-100">
 		{{ csrf_field() }}
 		<input type="text" class="form-control form-control-dark" name="search" placeholder="What would you like to search for?" aria-label="Search" />
 	</form>
@@ -51,30 +51,40 @@
 				</h6>
 				<ul class="nav flex-column mb-2">
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<form id="today-form" action="{{ route('dso.search') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="hidden" name="search" value="today" />
+						<a class="nav-link" href="{{ route('dso.search') }}" onclick="document.getElementById('today-form').submit(); return false;">
 							<svg class="feather">
 							<use xlink:href="{{ asset('/feather/feather-sprite.svg#file-text') }}"/>
-						</svg>
-							Current month
+							</svg>
+							Today
 						</a>
+						</form>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<span data-feather="file-text"></span>
-							Last quarter
+						<form id="yesterday-form" action="{{ route('dso.search') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="hidden" name="search" value="yesterday" />
+						<a class="nav-link" href="{{ route('dso.search') }}" onclick="document.getElementById('yesterday-form').submit(); return false;">
+							<svg class="feather">
+							<use xlink:href="{{ asset('/feather/feather-sprite.svg#file-text') }}"/>
+							</svg>
+							Yesterday
 						</a>
+						</form>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<span data-feather="file-text"></span>
-							Social engagement
+						<form id="pictures-form" action="{{ route('dso.search') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="hidden" name="search" value="pictures" />
+						<a class="nav-link" href="{{ route('dso.search') }}" onclick="document.getElementById('pictures-form').submit(); return false;">
+							<svg class="feather">
+							<use xlink:href="{{ asset('/feather/feather-sprite.svg#file-text') }}"/>
+							</svg>
+							All Board Pictures
 						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<span data-feather="file-text"></span>
-							Year-end sale
-						</a>
+						</form>
 					</li>
 				</ul>
 			</div>

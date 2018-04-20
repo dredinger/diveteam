@@ -66,15 +66,16 @@ class LogsController extends Controller
             'psi_oxy_third' => $request->psi_oxy_third,
             'psi_oxy_second' => $request->psi_oxy_second,
             'compressor_hours' => $request->compressor_hours,
-            'pictureid' => $pictureID,
-            'note_id' => $noteID
+            'picture_id' => $pictureID
         ])) {
             session()->flash('message', 'Your log has been saved.');
-            dd($log);
+            return redirect()->route('dso.logs.view', $log);
+        } else {
+            return back()->withInput()->withErrors();
         }
 
         
-        return redirect()->route('dso.logs.view', $log);
+        
     }
 
     /**

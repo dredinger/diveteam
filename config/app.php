@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://diveteam.dev'),
+    'url' => env('APP_URL', 'https://deepblueseafoundation.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Denver',
 
     /*
     |--------------------------------------------------------------------------

@@ -10,8 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::domain('localhost')->group(function () {
+Route::domain('deepblueseafoundation.org')->group(function () {
 	Route::get('/', 'MainController@index')->name('home');
 
 	Route::get('/downloads', 'DownloadsController@index')->name('downloads');
@@ -21,7 +20,7 @@ Route::domain('localhost')->group(function () {
 	Route::get('/contact', 'ContactController@index')->name('contact');
 
 	Route::group(['prefix' => 'volunteer'], function () {
-		Route::get('', 'VolunteerController@index')->name('volunteer');
+		Route::get('/', 'VolunteerController@index')->name('volunteer');
 		Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
 		Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
 		Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
@@ -30,7 +29,7 @@ Route::domain('localhost')->group(function () {
 	});
 
 	Route::group(['prefix' => 'info'], function () {
-		Route::get('', 'InfoController@index')->name('info');
+		Route::get('/', 'InfoController@index')->name('info');
 		Route::get('trainers', 'InfoController@trainer')->name('trainers');
 		Route::get('feeds', 'InfoController@feeds')->name('feeds');
 	});
@@ -46,10 +45,10 @@ Route::domain('localhost')->group(function () {
 	})->name('logout');
 });
 
-Route::domain('dso.localhost')->group(function () {
+Route::domain('dso.deepblueseafoundation.org')->group(function () {
 	Route::name('dso.')->group(function () {
 		Route::get('/', 'DsoController@index')->name('home');
-		Route::get('/search', 'DsoController@search')->name('index.search');
+		Route::get('/search', 'DsoController@search')->name('search');
 		Route::get('/logs', 'LogsController@index')->name('logs');
 		Route::get('/logs/{id}', 'LogsController@show')->name('logs.view');
 		Route::get('/logs/add', 'LogsController@create')->name('logs.add');

@@ -21,7 +21,8 @@
 		<div class="card-deck mb-5">
 		@foreach ($logs as $log)
 			@php
-				if (!verifyDsoChecks($log)) {
+				$verify = verifyDsoChecks($log);
+				if (count($verify) > 0) {
 					$status = 'danger';
 					$svg = 'x';
 				} else {
@@ -31,7 +32,7 @@
 			@endphp
 			<div class="card border-{{ $status }}">
 				<a href="{{ route('dso.logs.view', ['id' => $log->id]) }}">
-				<div class="card-header">Log #{{ $log->id }}</div>
+				<div class="card-header">{{ $log->created_at->toDayDateTimeString() }} <small class="float-right text-muted">[ {{ $log->id }} ]</small></div>
 				<div class="card-body">
 					<p class="card-text text-center">
 						<svg class="feather feather-normal feather-{{ $status }}"><use xlink:href="{{ asset('/feather/feather-sprite.svg#' . $svg . '-circle') }}"/></svg>

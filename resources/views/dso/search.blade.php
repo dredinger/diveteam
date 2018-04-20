@@ -22,7 +22,8 @@
 			@else
 				@foreach ($logs as $log)
 				@php
-					if (! verifyDsoChecks($log)) {
+					$verify = verifyDsoChecks($log);
+					if (count($verify) > 0) {
 						$check = 'danger';
 						$status = '/feather/feather-sprite.svg#x-circle';
 					} else {
@@ -33,7 +34,7 @@
 					<tr class="clickable-row" data-url="{{ route('dso.logs.view', $log->id) }}">
 						<td>{{ $log->id }}</td>
 						<td class="table-{{ $check }}"><svg class="feather"><use xlink:href="{{ asset($status) }}"/></svg></td>
-						<td>{{ \Carbon\Carbon::parse($log->updated_at)->setTimezone('America/Denver')->toDayDateTimeString() }}</td>
+						<td>{{ \Carbon\Carbon::parse($log->updated_at)->toDayDateTimeString() }}</td>
 					</tr>
 				@endforeach
 			@endif
@@ -65,7 +66,7 @@
 					<tr>
 						<td>{{ $note->id }}</td>
 						<td class="wordwrap">{{ $note->content }}</td>
-						<td>{{ \Carbon\Carbon::parse($note->updated_at)->setTimezone('America/Denver')->toDayDateTimeString() }}</td>
+						<td>{{ \Carbon\Carbon::parse($note->updated_at)->toDayDateTimeString() }}</td>
 					</tr>
 				@endforeach
 			@endif

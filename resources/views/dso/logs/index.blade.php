@@ -26,7 +26,8 @@
 			<tbody>
 			@foreach ($logs as $log)
 				@php
-					if (! verifyDsoChecks($log)) {
+					$verify = verifyDsoChecks($log);
+					if (count($verify) > 0) {
 						$check = 'danger';
 						$status = '/feather/feather-sprite.svg#x-circle';
 					} else {
@@ -35,8 +36,8 @@
 					}
 				@endphp
 				<tr>
-					<td scope="row">{{ $log->created_at->setTimeZone('America/Denver')->toDateString() }}</td>
-					<td>{{ $log->created_at->setTimeZone('America/Denver')->format('l') }}</td>
+					<td scope="row">{{ $log->created_at->toDateString() }}</td>
+					<td>{{ $log->created_at->format('l') }}</td>
 					<td class="table-{{ $check }}"><svg class="feather"><use xlink:href="{{ asset($status) }}"/></svg></td>
 					<td><a href="{{ route('dso.logs.view', $log->id) }}">View</a></td>
 				</tr>

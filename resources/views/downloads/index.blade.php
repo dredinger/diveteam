@@ -16,11 +16,11 @@
 			<li class="list-group-item">
 				{{ $download->name }}
 				<span class="float-right">
-					<a alt="View" title="View" id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}">
+					<a alt="View" title="View" id="View.{{ $download->id }}" href="/downloads/{{ $download->id }}">View
 						<svg class="feather">
 							<use xlink:href="{{ asset('/feather/feather-sprite.svg#eye') }}"/>
 						</svg></a>
-					<a alt="Download" title="Download" id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">
+					<a alt="Download" title="Download" id="Download.{{ $download->id }}" href="/downloads/{{ $download->id }}/download">Download
 						<svg class="feather">
 							<use xlink:href="{{ asset('/feather/feather-sprite.svg#download-cloud') }}"/>
 						</svg></a>

@@ -16,21 +16,20 @@ class Notes
 
 	public function lastFive()
 	{
-		return Note::latest()
+		return Note::latest('id')
 			->take(5)
-			->orderBy('created_at', 'desc')
 			->get();
 	}
 
 	public function all()
 	{
-		return Note::latest()
+		return Note::latest('id')
 			->get();
 	}
 
 	public function paged($number = 10)
 	{
-		return Note::latest()
+		return Note::latest('id')
 			->paginate($number);
 	}
 }

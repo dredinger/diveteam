@@ -32,14 +32,22 @@ class DsoController extends Controller
 		$format = 'Y-m-d';
 
 		$queryLogs = DB::table('logs')->orderBy('created_at', 'asc');
-		$queryNotes = DB::table('notes')->orderBy('created_at', 'asc');
+
+		if (str_is('pictures', $input)) {
+			$logs = $queryLogs->whereNotNull('picture_id')->get();
+			$notes = null;
+			$date = 'pictures';
+			return view('dso.search', compact('logs', 'notes', 'date'));
+		}
 
 		if (str_is('today', $input))
-			$date = Carbon::now()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::now()->endOfDay()->format('Y-m-d');
 		else if (str_is('yesterday', $input))
-			$date = Carbon::yesterday()->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::yesterday()->endOfDay()->format('Y-m-d');
 		else
-			$date = Carbon::parse($input)->endOfDay()->setTimezone('America/Denver')->format('Y-m-d');
+			$date = Carbon::parse($input)->endOfDay()->format('Y-m-d');
+
+		$queryNotes = DB::table('notes')->orderBy('created_at', 'asc');
 
 		$queryLogs->whereDate('created_at', $date);
 		$queryNotes->whereDate('created_at', $date);

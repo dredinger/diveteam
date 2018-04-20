@@ -16,21 +16,20 @@ class Logs
 
 	public function lastFive()
 	{
-		return Log::latest()
+		return Log::latest('id')
 			->take(5)
-			->orderBy('created_at', 'desc')
 			->get();
 	}
 
 	public function all()
 	{
-		return Log::latest()
+		return Log::latest('id')
 			->get();
 	}
 
 	public function paged($number = 10)
 	{
-		return Log::latest()
+		return Log::latest('id')
 			->paginate($number);
 	}
 	

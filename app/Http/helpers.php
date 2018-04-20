@@ -18,13 +18,14 @@ function verifyDsoChecks($input) {
 		'aed_second'
 	];
 
-	foreach($checking as $check) {
+	$errors = [];
+
+	foreach ($checking as $check) {
 		if ($input->$check != 1)
-			return false;
+			$errors[$check] = $input->$check;
 	}
 
-	return true;
-
+	return $errors;
 }
 
 function setActiveMenu($routeName, $class = ' active') {

@@ -139,6 +139,15 @@ table {
 	cursor: pointer;
 }
 
+#log-status {
+	font-style: inherit;
+    color: inherit;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
 
 
 /* DSO CUSTOMIZATION
