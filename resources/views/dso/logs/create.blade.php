@@ -20,23 +20,23 @@
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="psi_res"><strong>Reservoir PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_res" id="psi_res" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_res') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_res" id="psi_res" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_res') }}" />
 		</div>
 		<div class="form-group">
 			<label for="psi_uts"><strong>Under the Sea PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_uts" id="psi_uts" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_uts') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_uts" id="psi_uts" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_uts') }}" />
 		</div>
 		<div class="form-group">
 			<label for="psi_sw"><strong>Shipwreck PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_sw" id="psi_sw" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_sw') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_sw" id="psi_sw" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_sw') }}" />
 		</div>
 		<div class="form-group">
 			<label for="psi_dr"><strong>Dining Room PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_dr" id="psi_dr" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_dr') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_dr" id="psi_dr" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_dr') }}" />
 		</div>
 		<div class="form-group">
 			<label for="psi_bank"><strong>Bank System PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_bank" id="psi_bank" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_bank') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_bank" id="psi_bank" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_bank') }}" />
 		</div>
 		<div class="form-group">
 			<label for="jumppack_masks"><strong>All Jumppack Masks Available</strong></label>
@@ -65,16 +65,16 @@
 		</div>
 		<div class="form-group">
 			<label for="psi_oxy_third"><strong>3rd Floor O<sub>2</sub> Kit PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_oxy_third" id="psi_oxy_third" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('psi_oxy_third') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_oxy_third" id="psi_oxy_third" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_oxy_third') }}" />
 		</div>
 		<div class="form-group">
 			<label for="psi_oxy_second"><strong>2nd Floor O<sub>2</sub> Kit PSI</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="psi_oxy_second" id="psi_oxy_second" required maxlength="4" autocomplete="off" value="{{ old('psi_oxy_second') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="psi_oxy_second" id="psi_oxy_second" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ old('psi_oxy_second') }}" />
 		</div>
 		@if (isDay(4))
 		<div class="form-group">
 			<label for="compressor_hours"><strong>Compressor Hours</strong></label>
-			<input type="text" class="form-control" pattern="[0-9]*" name="compressor_hours" required maxlength="4" placeholder="0" autocomplete="off" value="{{ old('compressor_hours') }}" />
+			<input type="number" class="form-control" pattern="[0-9]*" name="compressor_hours" id="compressor_hours" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" value="{{ old('compressor_hours') }}" />
 		</div>
 		@endif
 		@if (isDay(2))
@@ -87,8 +87,8 @@
 		</div>
 		@endif
 		<div class="form-group">
-			<label for="notes"><strong>Notes</strong></label>
-			<textarea class="form-control" rows="5" name="notes" id="notes" placeholder="Write down any notes for the day...">{{ old('notes') }}</textarea>
+			<label for="note_content"><strong>Notes</strong></label>
+			<textarea class="form-control" rows="5" name="note_content" id="note_content" placeholder="Write down any notes for the day...">{{ old('note_content') }}</textarea>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Submit Log</button>&nbsp;

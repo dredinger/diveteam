@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::domain('deepblueseafoundation.org')->group(function () {
+Route::domain('localhost')->group(function () {
 	Route::get('/', 'MainController@index')->name('home');
 
 	Route::get('/downloads', 'DownloadsController@index')->name('downloads');
@@ -24,8 +24,8 @@ Route::domain('deepblueseafoundation.org')->group(function () {
 		Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
 		Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
 		Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
-		// Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
-		// Route::post('contact', 'VolunteerController@store');
+		Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
+		Route::post('contact', 'VolunteerController@store');
 	});
 
 	Route::group(['prefix' => 'info'], function () {
@@ -45,7 +45,8 @@ Route::domain('deepblueseafoundation.org')->group(function () {
 	})->name('logout');
 });
 
-Route::domain('dso.deepblueseafoundation.org')->group(function () {
+Route::group(['domain' => 'dso.localhost'], function () { //, 'middleware' => 'auth'
+
 	Route::name('dso.')->group(function () {
 		Route::get('/', 'DsoController@index')->name('home');
 		Route::get('/search', 'DsoController@search')->name('search');
@@ -60,4 +61,5 @@ Route::domain('dso.deepblueseafoundation.org')->group(function () {
 	Route::post('/search', 'DsoController@search');
 	Route::post('/logs/add', 'LogsController@store');
 	Route::post('/notes/add', 'NotesController@store');
+
 });

@@ -13,7 +13,7 @@
 			<label for="name" class="form-control-label">Full Name</label>
 
 			<div class="col-md-12">
-				<input id="name" type="name" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required autofocus />
+				<input id="name" type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required autofocus />
 			</div>
 		</div>
 
@@ -21,7 +21,7 @@
 			<label for="email" class="form-control-label">Email Address</label>
 
 			<div class="col-md-12">
-				<input id="email" type="email" class="form-control form-control-lg" name="email"value="{{ old('email') }}" required />
+				<input id="email" type="email" class="form-control form-control-lg" name="email" value="{{ old('email') }}" required />
 			</div>
 		</div>
 
@@ -29,7 +29,12 @@
 			<label for="position" class="form-control-label">Position Applying For</label>
 
 			<div class="col-md-12">
-				<input id="position" type="text" class="form-control form-control-lg" name="position"value="{{ old('position') }}" required />
+				<input id="position" list="positions" class="form-control form-control-lg" name="position"value="{{ old('position') }}" required />
+				<datalist id="positions">
+					<option value="Aquarium Guide">
+					<option value="Animal Assistant">
+					<option value="Diver">
+				</datalist>
 			</div>
 		</div>
 

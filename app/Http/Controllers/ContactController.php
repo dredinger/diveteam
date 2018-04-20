@@ -8,10 +8,10 @@ use App\Http\Requests\ContactRequest;
 class ContactController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth')->except('index');
-    }
+	public function __construct()
+	{
+		$this->middleware('auth')->except('index');
+	}
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +19,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $managers = \DB::table('managers')->get();
-        return view('contact.index', compact('managers'));
+    	$managers = \DB::table('managers')->get();
+    	return view('contact.index', compact('managers'));
     }
     
 }

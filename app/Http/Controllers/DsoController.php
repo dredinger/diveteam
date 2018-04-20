@@ -31,7 +31,7 @@ class DsoController extends Controller
 		$input = $request->search;
 		$format = 'Y-m-d';
 
-		$queryLogs = DB::table('logs')->orderBy('created_at', 'asc');
+		$queryLogs = DB::table('logs')->orderBy('created_at', 'desc');
 
 		if (str_is('pictures', $input)) {
 			$logs = $queryLogs->whereNotNull('picture_id')->get();
@@ -47,7 +47,7 @@ class DsoController extends Controller
 		else
 			$date = Carbon::parse($input)->endOfDay()->format('Y-m-d');
 
-		$queryNotes = DB::table('notes')->orderBy('created_at', 'asc');
+		$queryNotes = DB::table('notes')->orderBy('created_at', 'desc');
 
 		$queryLogs->whereDate('created_at', $date);
 		$queryNotes->whereDate('created_at', $date);

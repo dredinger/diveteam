@@ -41,6 +41,7 @@
 			</tbody>
 		</table>
 		</div>
+		@if ($date !== 'pictures')
 		<div class="col">
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
@@ -55,14 +56,6 @@
 				<tr><td colspan="3">No notes exist.</td></tr>
 			@else
 				@foreach ($notes as $note)
-				@php
-					if (isset($note->log_id) && $note->log_id != 0) {
-						$route = route('dso.logs.view', $note->log_id);
-						$link = '<a href="'.$route.'">View</a>';
-					} else {
-						$link = 'Not attached.';
-					}
-				@endphp
 					<tr>
 						<td>{{ $note->id }}</td>
 						<td class="wordwrap">{{ $note->content }}</td>
@@ -73,6 +66,7 @@
 			</tbody>
 		</table>
 		</div>
+		@endif
 	</div>
 
 @endsection

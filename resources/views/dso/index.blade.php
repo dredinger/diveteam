@@ -8,7 +8,7 @@
 <div class="btn-toolbar mb-2 mb-md-0">
 	<div class="btn-group mr-2">
 		<a href="{{ route('dso.logs.add') }}" class="btn btn-sm btn-outline-secondary">Add Daily Log</a>
-		<a href="{{ route('dso.notes.add') }}" class="btn btn-sm btn-outline-secondary">Create New Log</a>
+		<a href="{{ route('dso.notes.add') }}" class="btn btn-sm btn-outline-secondary">Add New Note</a>
 	</div>
 </div>
 @endsection

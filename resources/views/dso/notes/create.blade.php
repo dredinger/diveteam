@@ -14,14 +14,14 @@
 
 @section ('content')
 
-@include ('layouts.errors')
+	@include ('layouts.errors')
 
 	<form action="{{ route('dso.notes.add') }}" method="POST">
 		{{ csrf_field() }}
 
 		<div class="form-group">
-			<label for="note"><strong>Add Note</strong></label>
-			<textarea class="form-control" pattern="[0-9]*" name="name" id="note" required placeholder="Write down any notes here regarding the day..." rows="5">{{ old('note') }}</textarea>
+			<label for="note_content"><strong>Add Note</strong></label>
+			<textarea class="form-control" name="note_content" id="note_content" required placeholder="Write down any notes here regarding the day..." rows="5">{{ old('note_content') }}</textarea>
 		</div>
 
 		<div class="form-group">

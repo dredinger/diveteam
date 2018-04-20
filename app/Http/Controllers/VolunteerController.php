@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\VolunteerContactRequest;
+use Illuminate\Support\Facades\Mail;
 
 class VolunteerController extends Controller
 {
@@ -44,15 +45,16 @@ class VolunteerController extends Controller
 
     public function store(VolunteerContactRequest $request)
     {
-        \Mail::send('emails.contact',
+        Mail::send('emails.contact',
             [
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'position' => $request->get('position'),
-                'user_message' => $request->get('message')
+                'name' => $request->name,
+                'email' => $request->email,
+                'position' => $request->position,
+                'user_message' => $request->message
             ], function ($message) {
-                $message->from('info@deepblueseafoundation.org');
-                $message->to('daniel.redinger@gmail.com', 'Admin')->subject('Volunteer Contact Form');
+                $message->from('info@deepblueseafoundation.org', 'DBSF Volunteer Form');
+                $message->to('daniel.redinger@gmail.com', 'Admin');
+                $message->subject('Volunteer Contact Form');
             }
         );
 
