@@ -15,11 +15,11 @@
 @section ('content')
 
 	@php
-		$jpm_checked = (old('jumppack_masks') !== null) ? ' checked' : '';
-		$dis_checked = (old('disinfectants') !== null) ? ' checked' : '';
-		$ckl_checked = (old('sd_checklist') !== null) ? ' checked' : '';
-		$ath_checked = (old('aed_third') !== null) ? ' checked' : '';
-		$ase_checked = (old('aed_second') !== null) ? ' checked' : '';
+		$jpm_checked = (old('jumppack_masks') != null) ? ' checked' : '';
+		$dis_checked = (old('disinfectants') != null) ? ' checked' : '';
+		$ckl_checked = (old('sd_checklist') != null) ? ' checked' : '';
+		$ath_checked = (old('aed_third') != null) ? ' checked' : '';
+		$ase_checked = (old('aed_second') != null) ? ' checked' : '';
 	@endphp
 
 	@include ('layouts.errors')
@@ -48,26 +48,31 @@
 		</div>
 		<div class="form-group">
 			<label for="jumppack_masks"><strong>All Jumppack Masks Available</strong></label>
+			<input type="hidden" name="jumppack_masks" value="0" />
 			<input type="checkbox" name="jumppack_masks" id="jumppack_masks" value="1" class="toggle toggle-ios" {{ $jpm_checked }}/>
 				<label class="toggle-btn" for="jumppack_masks"></label>
 		</div>
 		<div class="form-group">
 			<label for="disinfectants"><strong>All Disinfectants Checked</strong></label>
+			<input type="hidden" name="disinfectants" value="0" />
 			<input type="checkbox" name="disinfectants" id="disinfectants" value="1" class="toggle toggle-ios" {{ $dis_checked }}/>
 				<label class="toggle-btn" for="disinfectants"></label>
 		</div>
 		<div class="form-group">
 			<label for="sd_checklist"><strong>Safety Diver Checklist</strong></label>
+			<input type="hidden" name="sd_checklist" value="0" />
 			<input type="checkbox" name="sd_checklist" id="sd_checklist" value="1" class="toggle toggle-ios" {{ $ckl_checked }}/>
 				<label class="toggle-btn" for="sd_checklist"></label>
 		</div>
 		<div class="form-group">
 			<label for="aed_third"><strong>3rd Floor AED Status</strong></label>
+			<input type="hidden" name="aed_third" value="0" />
 			<input type="checkbox" name="aed_third" id="aed_third" value="1" class="toggle toggle-ios" {{ $ath_checked }}/>
 				<label class="toggle-btn" for="aed_third"></label>
 		</div>
 		<div class="form-group">
 			<label for="aed_second"><strong>2nd Floor AED Status</strong></label>
+			<input type="hidden" name="aed_second" value="0" />
 			<input type="checkbox" name="aed_second" id="aed_second" value="1" class="toggle toggle-ios" {{ $ase_checked }}/>
 				<label class="toggle-btn" for="aed_second"></label>
 		</div>

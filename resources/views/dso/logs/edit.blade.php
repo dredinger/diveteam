@@ -88,16 +88,17 @@
 			<label for="compressor_hours"><strong>Compressor Hours</strong></label>
 			<input type="number" class="form-control" pattern="[0-9]*" name="compressor_hours" id="compressor_hours" maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" value="{{ $log->compressor_hours }}" />
 		</div>
+		@if ($log->picture_id)
+		<div class="form-group">
+			<img src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" />
+		</div>
+		@else
 		<div class="form-group">
 			<label for="diveboard_picture_text" class="btn btn-primary btn-block btn-file">
 				<strong>Dive Board Picture</strong>
 				<input type="file" name="diveboard_picture" />
 			</label>
 			<input type="text" class="form-control" name="diveboard_picture_text" readonly />
-		</div>
-		@if ($log->picture_id)
-		<div class="form-group">
-			<img src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" />
 		</div>
 		@endif
 		<div class="form-group">

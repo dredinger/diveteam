@@ -41,47 +41,28 @@ class LogsController extends Controller
 	{
 		$pictureID = null;
 		if (isDay(2)) {
-			if ($request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
-				$pic = new Log;
-				$pictureID = $pic->setup($request);
-			} else {
-				return back()->withInput()->withErrors(['picture' => 'No picture found!']);
-			}
+			$pic = new Log;
+			$pictureID = $pic->setup($request);
+			if ($pictureID === false)
+				return back()->withInput()->withErrors(['Picture not found or invalid.']);
 		}
 
-		$masks = ($request->jumppack_masks == null) ? '0' : '1';
-		$disinfectants = ($request->disinfectants == null) ? '0' : '1';
-		$sd_checklist = ($request->sd_checklist == null) ? '0' : '1';
-		$aed_third = ($request->aed_third == null) ? '0' : '1';
-		$aed_second = ($request->aed_second == null) ? '0' : '1';
+		$requestInput = $request->except(['diveboard_picture', 'diveboard_picture_text']);
+		$input = array_add($requestInput, 'picture_id', $pictureID);
+		$input = array_add($input, 'ip', $request->ip());
 
-		$log = Log::create([
-			'ip' => $request->ip(),
-			'psi_res' => $request->psi_res,
-			'psi_uts' => $request->psi_uts,
-			'psi_sw' => $request->psi_sw,
-			'psi_dr' => $request->psi_dr,
-			'psi_bank' => $request->psi_bank,
-			'jumppack_masks' => $masks,
-			'disinfectants' => $disinfectants,
-			'sd_checklist' => $sd_checklist,
-			'aed_third' => $aed_third,
-			'aed_second' => $aed_second,
-			'psi_oxy_third' => $request->psi_oxy_third,
-			'psi_oxy_second' => $request->psi_oxy_second,
-			'compressor_hours' => $request->compressor_hours,
-			'picture_id' => $pictureID
-		]);
-		if ($request->note_content) {
+		$log = Log::create(array_except($input, 'note_content'));
+
+		if (isset($input['note_content']) && $input['note_content'] != null) {
 			Note::create([
-				'ip' => $request->ip(),
-				'content' => $request->note_content,
-				'log_id' => $log
+				'ip' => $input['ip'],
+				'content' => $input['note_content'],
+				'log_id' => $log->id
 			]);
 		}
+
 		session()->flash('message', 'Your log has been saved.');
 		return redirect()->route('dso.logs.view', $log);
-
 	}
 
 	/**

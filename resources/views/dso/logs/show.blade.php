@@ -39,11 +39,11 @@
 			<p class="card-text">UTS Jumppack PSI: {{ $log->psi_uts }}</p>
 			<p class="card-text">SW Jumppack PSI: {{ $log->psi_sw }}</p>
 			<p class="card-text">DR Jumppack PSI: {{ $log->psi_dr }}</p>
-			<p class="card-text">Jumppack Masks In Place: {{ $log->jumppack_masks == 1 ? 'Yes' : 'No' }}</p>
-			<p class="card-text">Disinfectants Checked: {{ $log->disinfectants == 1 ? 'Yes' : 'No' }}</p>
-			<p class="card-text">Safety Diver Checklists Completed: {{ $log->sd_checklist == 1 ? 'Yes' : 'No' }}</p>
-			<p class="card-text">Third Floor AED Status: {{ $log->aed_third == 1 ? 'Green' : 'Red' }}</p>
-			<p class="card-text">Second Floor AED Status: {{ $log->aed_second == 1 ? 'Green' : 'Red' }}</p>
+			<p class="card-text">Jumppack Masks In Place: {!! $log->jumppack_masks == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
+			<p class="card-text">Disinfectants Checked: {!! $log->disinfectants == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
+			<p class="card-text">Safety Diver Checklists Completed: {!! $log->sd_checklist == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
+			<p class="card-text">Third Floor AED Status: {!! $log->aed_third == 1 ? 'Green' : '<span class="text-danger font-weight-bold">Red</span>' !!}</p>
+			<p class="card-text">Second Floor AED Status: {!! $log->aed_second == 1 ? 'Green' : '<span class="text-danger font-weight-bold">Red</span>' !!}</p>
 			<p class="card-text">Third Floor O<sub>2</sub> PSI: {{ $log->psi_oxy_third }}</p>
 			<p class="card-text">Second Floor O<sub>2</sub> PSI: {{ $log->psi_oxy_second }}</p>
 			@if ($log->compressor_hours)

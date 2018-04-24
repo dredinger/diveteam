@@ -4,8 +4,6 @@ namespace App;
 
 class Log extends Model
 {
-
-	private $request;
 	// protected $fillable = [
 	// 	''
 	// ];
@@ -17,12 +15,13 @@ class Log extends Model
 
 	public function setup($request)
 	{
-		$this->request = $request;
 		$pic = null;
-		if (isDay(2)) {
-			$path = $this->request->diveboard_picture->store('public/dso-pictures');
-			$pic = $this->request->diveboard_picture->hashName();
-		}
+
+		if (!$request->hasFile('diveboard_picture') || !$request->file('diveboard_picture')->isValid())
+			return false;
+
+		$path = $request->diveboard_picture->store('public/dso-pictures');
+		$pic = $request->diveboard_picture->hashName();
 
 		return $pic;
 	}
