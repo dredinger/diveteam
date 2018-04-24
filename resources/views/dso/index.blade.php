@@ -32,11 +32,12 @@
 			@endphp
 			<div class="card border-{{ $status }}">
 				<a href="{{ route('dso.logs.view', ['id' => $log->id]) }}">
-				<div class="card-header">{{ $log->created_at->toDayDateTimeString() }} <small class="float-right text-muted">[ {{ $log->id }} ]</small></div>
+				<div class="card-header">{{ $log->created_at->toDayDateTimeString() }}</div>
 				<div class="card-body">
 					<p class="card-text text-center">
 						<svg class="feather feather-normal feather-{{ $status }}"><use xlink:href="{{ asset('/feather/feather-sprite.svg#' . $svg . '-circle') }}"/></svg>
 					</p>
+					<small class="float-right text-muted">[ {{ $log->id }} ]</small>
 				</div>
 				<div class="card-footer">
 					<p class="card-text"><small class="text-muted">Last updated {{ $log->updated_at->diffForHumans() }}</small></p>
@@ -53,11 +54,12 @@
 		<div class="card-deck mb-5">
 		@foreach ($notes as $note)
 			<div class="card">
-				<div class="card-header">{{ $note->created_at->toDayDateTimeString() }} <small class="float-right text-muted">[ {{ $note->id }} ]</small></div>
+				<div class="card-header">{{ $note->created_at->toDayDateTimeString() }}</div>
 				<div class="card-body">
 					<p class="card-text text-center">
 						{{ $note->content }}
 					</p>
+					<small class="float-right text-muted">[ {{ $note->id }} ]</small>
 				</div>
 				<div class="card-footer">
 					<p class="card-text"><small class="text-muted">Last updated {{ $note->updated_at->diffForHumans() }}</small></p>

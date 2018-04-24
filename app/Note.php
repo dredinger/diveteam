@@ -5,6 +5,11 @@ namespace App;
 class Note extends Model
 {
 
+	public function log() 
+    {
+    	return $this->belongsTo(Log::class);	
+    }
+
     public function scopeFilter($query, $filters)
 	{
 		if ($month = $filters['month']) {

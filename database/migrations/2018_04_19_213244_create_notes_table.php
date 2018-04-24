@@ -17,6 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->ipAddress('ip');
             $table->text('content');
+            $table->integer('log_id');
             $table->timestamps();
         });
     }

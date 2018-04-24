@@ -1,7 +1,7 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-.nav {
+/*.nav {
   @apply .d-flex .align-items-center;
 }
 .nav-item {
@@ -14,17 +14,17 @@
   box-shadow: inset 0px -2px 0px 0px green;
   -moz-box-shadow: inset 0px -2px 0px 0px green;
   -webkit-box-shadow: inset 0px -2px 0px 0px green;
-}
+}*/
 .font-weight-thin {
   font-weight: 200 !important;
 }
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
   font-weight: normal;
   line-height: 1.5;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
   padding-bottom: 3rem;
   background-color: #ededed;
 }
@@ -38,6 +38,9 @@ nav {
 }
 nav > div.container {
   border-bottom: 1px solid #ecf0f1;
+}
+.navbar {
+  padding: 0;
 }
 .navbar-brand {
   font-size: 28px;

@@ -6,6 +6,9 @@ class Log extends Model
 {
 
 	private $request;
+	// protected $fillable = [
+	// 	''
+	// ];
 
 	public function notes()
 	{

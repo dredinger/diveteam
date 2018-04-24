@@ -40,17 +40,13 @@ class LogsController extends Controller
 	public function store(LogRequest $request)
 	{
 		$pictureID = null;
-		$noteID = null;
-		if ($request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
-			$pic = new Log;
-			$pictureID = $pic->setup($request);
-		}
-
-		if ($request->note_content) {
-			$noteID = Note::create([
-				'ip' => $request->ip(),
-				'content' => $request->note_content
-			]);
+		if (isDay(2)) {
+			if ($request->hasFile('diveboard_picture') && $request->file('diveboard_picture')->isValid()) {
+				$pic = new Log;
+				$pictureID = $pic->setup($request);
+			} else {
+				return back()->withInput()->withErrors(['picture' => 'No picture found!']);
+			}
 		}
 
 		$masks = ($request->jumppack_masks == null) ? '0' : '1';
@@ -59,7 +55,7 @@ class LogsController extends Controller
 		$aed_third = ($request->aed_third == null) ? '0' : '1';
 		$aed_second = ($request->aed_second == null) ? '0' : '1';
 
-		if ($log = Log::create([
+		$log = Log::create([
 			'ip' => $request->ip(),
 			'psi_res' => $request->psi_res,
 			'psi_uts' => $request->psi_uts,
@@ -75,15 +71,17 @@ class LogsController extends Controller
 			'psi_oxy_second' => $request->psi_oxy_second,
 			'compressor_hours' => $request->compressor_hours,
 			'picture_id' => $pictureID
-		])) {
-			session()->flash('message', 'Your log has been saved.');
-			return redirect()->route('dso.logs.view', $log);
-		} else {
-			return back()->withInput()->withErrors();
+		]);
+		if ($request->note_content) {
+			Note::create([
+				'ip' => $request->ip(),
+				'content' => $request->note_content,
+				'log_id' => $log
+			]);
 		}
+		session()->flash('message', 'Your log has been saved.');
+		return redirect()->route('dso.logs.view', $log);
 
-		
-		
 	}
 
 	/**
@@ -96,8 +94,8 @@ class LogsController extends Controller
 	{
 		if (!$log = Log::find($id))
 			return redirect()->route('dso.logs')->with('error', 'Log does not exist!');
-			else
-				return view('dso.logs.show', compact('log'));
+		else
+			return view('dso.logs.show', compact('log'));
 		}
 
 	/**
@@ -108,7 +106,9 @@ class LogsController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		$log = Log::findOrFail($id);
+
+		return view('dso.logs.edit', compact('log'));
 	}
 
 	/**
@@ -118,9 +118,14 @@ class LogsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(LogRequest $request, $id)
 	{
-		//
+		$log = Log::findOrFail($id);
+		$input = $request->except('diveboard_picture_text');
+		$log->update($input);
+
+		session()->flash('message', 'Your log has been updated.');
+		return redirect()->route('dso.logs.view', $log);
 	}
 
 	/**

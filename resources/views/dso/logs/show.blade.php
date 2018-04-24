@@ -7,6 +7,7 @@
 @section ('extra-nav')
 <div class="btn-toolbar mb-2 mb-md-0">
 	<div class="btn-group mr-2">
+		<a href="{{ route('dso.logs.edit', $log->id) }}" class="btn btn-sm btn-outline-primary">Edit Log</a>
 		<a href="{{ route('dso.logs') }}" class="btn btn-sm btn-outline-secondary">View Logs</a>
 		<a href="{{ route('dso.logs.add') }}" class="btn btn-sm btn-outline-secondary">Add Daily Log</a>
 	</div>
@@ -49,6 +50,15 @@
 			<p class="card-text">Compressor Hours: {{ $log->compressor_hours }}</p>
 			@endif
 		</div>
+		@if (count($log->notes))
+		<ul class="list-group">
+			@foreach ($log->notes as $note)
+				<li class="list-group-item">
+					<strong>{{ $note->ip }} noted {{ $note->created_at->diffForHumans() }}: &nbsp;</strong>{{ $note->content }}
+				</li>
+			@endforeach
+		</ul>
+		@endif
 		@if ($log->picture_id)
 		<div class="card-footer">
 			<p class="card-text"><img src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" /></p>
