@@ -1,0 +1,11 @@
+.nav {
+	@apply .d-flex .align-items-center;
+}
+
+.nav-item {
+	@apply .py-2;
+
+	&:last-child {
+		@apply .mr-0;
+	}
+}

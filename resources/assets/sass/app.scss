@@ -1,42 +1,90 @@
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@import "components/nav.scss";
+
+
+
+.font-weight-thin {
+  font-weight: 200 !important;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
 body {
-  font-family: 'Montserrat', "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   padding-bottom: 3rem;
-  color: #5a5a5a;
+  background-color: #ededed;
 }
 
 footer {
-  font-family: 'Montserrat', sans-serif;
-  padding-top: 20px;
+  padding-top: 100px;
+  font-weight: 300;
+  font-size: 15px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
-  text-align: center;
+nav {
+  background-color: #fff;
 }
 
-.active {
-  border-bottom: 2px #fff;
+nav > div.container {
+  border-bottom: 1px solid #ecf0f1;
 }
 
-.main-content {
-  margin-top: 25px;
+.nav-active {
+  box-shadow: inset 0px -2px 0px 0px green;
+  -moz-box-shadow: inset 0px -2px 0px 0px green;
+  -webkit-box-shadow: inset 0px -2px 0px 0px green;
+}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.section-title {
+  background-color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 10px 0 20px 0;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.feather {
+  width: 23px;
+  height: 23px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  display: inline-block;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #4D5960;
+}
+
+.container .navbar-nav > li > a.active {
+  color: #1c2024;
+  box-shadow: 0 -2px 0 0 #0275d8 inset;
 }
 
 .nav-item {
-  margin-right: 20px;
+  margin-right: 10px;
+}
+
+.list-group-item {
+  padding: 1.25rem 1.25rem;
 }
 
 #divide {
@@ -49,24 +97,6 @@ footer {
   top: 50px;
   right: 20px;
   z-index: 10;
-}
-
-.header-mobile {
-  display: none;
-}
-
-.header-desktop {
-  display: inline;
-}
-
-@media screen and (max-width: 600px) {
-  .header-mobile {
-    display: inline;
-  }
-
-  .header-desktop {
-    display: none;
-  }
 }
 
 .badge {
@@ -83,113 +113,7 @@ footer {
   height: auto;
 }
 
-.navbar-inverse .navbar-nav .nav-link {
-  color: rgba(255,255,255,1);
-}
 
-.navbar {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* DSO CUSTOMIZATION
--------------------------------------------------- */
-
-.toggle {
-  display: none;
-}
-
-.toggle, .toggle:after, .toggle:before, .toggle *, .toggle *:after, .toggle *:before, .toggle + .toggle-btn {
-  box-sizing: border-box;
-}
-
-.toggle::-moz-selection, .toggle:after::-moz-selection, .toggle:before::-moz-selection, .toggle *::-moz-selection, .toggle *:after::-moz-selection, .toggle *:before::-moz-selection, .toggle + .toggle-btn::-moz-selection {
-  background: none;
-}
-.toggle::selection, .toggle:after::selection, .toggle:before::selection, .toggle *::selection, .toggle *:after::selection, .toggle *:before::selection, .toggle + .toggle-btn::selection {
-  background: none;
-}
-.toggle + .toggle-btn {
-  outline: 0;
-  display: block;
-  width: 8em;
-  height: 2em;
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.toggle + .toggle-btn:after, .toggle + .toggle-btn:before {
-  position: relative;
-  display: block;
-  content: "";
-  width: 25%;
-  height: 100%;
-}
-.toggle + .toggle-btn:after {
-  left: 0;
-}
-.toggle + .toggle-btn:before {
-  display: none;
-}
-.toggle:checked + .toggle-btn:after {
-  left: 75%;
-}
-.toggle-ios + .toggle-btn {
-  background: red;
-  border-radius: 2em;
-  padding: 2px;
-  -webkit-transition: all .6s ease;
-  transition: all .6s ease;
-  border: 1px solid #e8eae9;
-}
-.toggle-ios + .toggle-btn:after {
-  border-radius: 2em;
-  background: #fbfbfb;
-  -webkit-transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.6s ease, margin 0.3s ease;
-  transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.6s ease, margin 0.3s ease;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
-}
-.toggle-ios + .toggle-btn:hover:after {
-  will-change: padding;
-}
-.toggle-ios + .toggle-btn:active {
-  box-shadow: inset 0 0 0 2em #e8eae9;
-}
-.toggle-ios + .toggle-btn:active:after {
-  padding-right: .8em;
-}
-.toggle-ios:checked + .toggle-btn {
-  background: #86d993;
-}
-.toggle-ios:checked + .toggle-btn:active {
-  box-shadow: none;
-}
-.toggle-ios:checked + .toggle-btn:active:after {
-  margin-left: -.8em;
-}
-
-
-.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-.btn-file input[type=file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
-}
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -253,6 +177,15 @@ footer {
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  a[id^="Download"] { display: none; }
+  td[id^="title"] { display: none; }
+  th[id^="title"] { display: none; }
+}
+
+@media (max-width: 991px) {
+  .navbar { align-items: left; }
+}
 
 @media (min-width: 40em) {
   /* Bump up size of carousel content */

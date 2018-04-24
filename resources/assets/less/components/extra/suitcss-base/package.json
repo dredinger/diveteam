@@ -1,0 +1,121 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "suitcss-base",
+        "scope": null,
+        "escapedName": "suitcss-base",
+        "name": "suitcss-base",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "Z:\\Applications\\XAMPP\\htdocs\\diveteam"
+    ]
+  ],
+  "_from": "suitcss-base@latest",
+  "_id": "suitcss-base@4.0.0",
+  "_inCache": true,
+  "_location": "/suitcss-base",
+  "_nodeVersion": "8.3.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/suitcss-base-4.0.0.tgz_1506362023916_0.828610438387841"
+  },
+  "_npmUser": {
+    "name": "simonsmith",
+    "email": "me@simonsmith.io"
+  },
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "suitcss-base",
+    "scope": null,
+    "escapedName": "suitcss-base",
+    "name": "suitcss-base",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/suitcss-base/-/suitcss-base-4.0.0.tgz",
+  "_shasum": "f3374526410c90e28a3fd8435947f1caa6146eb6",
+  "_shrinkwrap": null,
+  "_spec": "suitcss-base",
+  "_where": "Z:\\Applications\\XAMPP\\htdocs\\diveteam",
+  "author": {
+    "name": "Nicolas Gallagher"
+  },
+  "bugs": {
+    "url": "https://github.com/suitcss/base/labels/bug"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  },
+  "description": "CSS base styles",
+  "devDependencies": {
+    "suitcss-components-test": "*",
+    "suitcss-preprocessor": "^4.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-yw6fqMlyj0eDfnUnvT9Va/kFdDx58g99WenDeEiWlmrLFZUNlydCThZri4x53hn9FEIyXKZxVO3s1C3J6BbSvw==",
+    "shasum": "f3374526410c90e28a3fd8435947f1caa6146eb6",
+    "tarball": "https://registry.npmjs.org/suitcss-base/-/suitcss-base-4.0.0.tgz"
+  },
+  "files": [
+    "index.css",
+    "index.js",
+    "lib"
+  ],
+  "gitHead": "781c9b05fbcff43b5836baa0b46b408dac3bec0e",
+  "homepage": "https://github.com/suitcss/base#readme",
+  "keywords": [
+    "base",
+    "browser",
+    "css",
+    "normalize-css",
+    "suitcss",
+    "style"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "giuseppegurgone",
+      "email": "ggurgone@gmail.com"
+    },
+    {
+      "name": "necolas",
+      "email": "nicolasgallagher@gmail.com"
+    },
+    {
+      "name": "simonsmith",
+      "email": "me@simonsmith.io"
+    },
+    {
+      "name": "timkelty",
+      "email": "tim@fusionary.com"
+    }
+  ],
+  "name": "suitcss-base",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/suitcss/base.git"
+  },
+  "scripts": {
+    "build": "npm run setup && npm run preprocess",
+    "build-test": "npm run setup && npm run preprocess-test",
+    "lint": "suitcss -e index.css build/lint.css && rm build/lint.css",
+    "preprocess": "suitcss index.css build/build.css",
+    "preprocess-test": "suitcss -i test test/test.css build/test.css",
+    "setup": "npm install",
+    "test": "npm run lint",
+    "watch": "npm run preprocess-test -- -w -v"
+  },
+  "style": "index.css",
+  "version": "4.0.0"
+}

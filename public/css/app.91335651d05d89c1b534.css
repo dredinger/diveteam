@@ -1,0 +1,17 @@
+textarea {
+  resize: vertical;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
+
+button,
+[role=button] {
+  cursor: pointer;
+}
+@tailwind-utilities all;
