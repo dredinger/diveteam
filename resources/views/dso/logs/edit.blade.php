@@ -90,7 +90,7 @@
 		</div>
 		@if ($log->picture_id)
 		<div class="form-group">
-			<img src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" />
+			<img class="img-fluid" src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" />
 		</div>
 		@else
 		<div class="form-group">
@@ -103,7 +103,7 @@
 		@endif
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Submit Log</button>&nbsp;
-			<a href="{{ route('dso.home') }}" class="btn btn-outline-danger">Cancel</a>
+			<a href="{{ route('dso.logs.view', $log->id) }}" class="btn btn-outline-danger">Cancel</a>
 		</div>
 	</form>
 
