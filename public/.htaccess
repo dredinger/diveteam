@@ -6,8 +6,16 @@
     IndexIgnore *
 
     RewriteEngine On
+
+    # Force HTTPS On DSO Subdomains
+    RewriteCond %{HTTP_HOST} ^dso\.deepblueseafoundation\.org$ [NC]
+    RewriteRule .? https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Force HTTPS On Base Domain
+    RewriteCond %{HTTP_HOST} ^deepblueseafoundation.org$ [NC]
+    RewriteRule ^(.*)$ https://deepblueseafoundation.org/$1 [R=301,L]
     
-    # Redirect www to non-www url with HTTPS...
+    # Redirect www To Non-www URL With HTTPS...
     RewriteCond %{HTTP_HOST} ^www.deepblueseafoundation.org$ [NC]
     RewriteRule ^(.*)$ https://deepblueseafoundation.org/$1 [R=301,L]
 
