@@ -153,6 +153,10 @@ table {
 /* DSO CUSTOMIZATION
 -------------------------------------------------- */
 
+img {
+	max-width: 100%;
+}
+
 .toggle {
 	display: none;
 }

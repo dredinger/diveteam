@@ -29,7 +29,7 @@ class CreateLogsTable extends Migration
             $table->integer('psi_oxy_third')->default('2000');;
             $table->integer('psi_oxy_second')->default('2000');;
             $table->integer('compressor_hours')->nullable();
-            $table->char('picture_id', 32)->nullable();
+            $table->string('picture_id', 50)->nullable();
             $table->timestamps();
         });
     }

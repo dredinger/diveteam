@@ -40,6 +40,7 @@ class LogsController extends Controller
 	public function store(LogRequest $request)
 	{
 		$pictureID = null;
+
 		if (isDay(2)) {
 			$pic = new Log;
 			$pictureID = $pic->setup($request);
