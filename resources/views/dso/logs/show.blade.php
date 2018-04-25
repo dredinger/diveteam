@@ -61,7 +61,7 @@
 		@endif
 		@if ($log->picture_id)
 		<div class="card-footer">
-			<p class="card-text"><img src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" /></p>
+			<p class="card-text"><img class="img-fluid" src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" /></p>
 		</div>
 		@endif
 	</div>
