@@ -7,17 +7,18 @@
 
     RewriteEngine On
 
-    # Force HTTPS On DSO Subdomains
-    RewriteCond %{HTTP_HOST} ^dso\.deepblueseafoundation\.org$ [NC]
-    RewriteRule .? https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-    # Force HTTPS On Base Domain
-    RewriteCond %{HTTP_HOST} ^deepblueseafoundation.org$ [NC]
-    RewriteRule ^(.*)$ https://deepblueseafoundation.org/$1 [R=301,L]
+    # Force HTTPS...
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
     
     # Redirect www To Non-www URL With HTTPS...
     RewriteCond %{HTTP_HOST} ^www.deepblueseafoundation.org$ [NC]
     RewriteRule ^(.*)$ https://deepblueseafoundation.org/$1 [R=301,L]
+
+    # Redirect www To Non-www URL on subdomains...
+    RewriteCond %{HTTP_HOST} ^www\.([^.]+\.deepblueseafoundation\.org)$ [NC]
+    RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [R=301,L]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
