@@ -1,7 +1,7 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Logs - Add Log
+	Logs - Create Log
 @endsection
 
 @section ('extra-nav')
@@ -24,7 +24,7 @@
 
 	@include ('layouts.errors')
 
-	<form action="{{ route('dso.logs.add') }}" method="POST" enctype="multipart/form-data">
+	<form action="{{ route('dso.logs.create') }}" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="psi_res"><strong>Reservoir PSI</strong></label>

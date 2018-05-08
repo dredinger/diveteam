@@ -53,11 +53,11 @@ Route::group(['domain' => 'dso.localhost'], function () { //, 'middleware' => 'a
 		Route::get('/logs', 'LogsController@index')->name('logs');
 		Route::get('/logs/{id}', 'LogsController@show')->name('logs.view');
 		Route::get('/logs/edit/{id}', 'LogsController@edit')->name('logs.edit');
-		Route::post('/logs/update/{id}', 'LogsController@update')->name('logs.update');
-		Route::get('/logs/add', 'LogsController@create')->name('logs.add');
+		Route::put('/logs/{id}', 'LogsController@update')->name('logs.update');
+		Route::get('/logs/create', 'LogsController@create')->name('logs.create');
 		Route::get('/notes', 'NotesController@index')->name('notes');
 		Route::get('/notes/{id}', 'NotesController@show')->name('notes.view');
-		Route::get('/notes/add', 'NotesController@create')->name('notes.add');
+		Route::get('/notes/create', 'NotesController@create')->name('notes.create');
 	});
 	
 	Route::post('/search', 'DsoController@search');

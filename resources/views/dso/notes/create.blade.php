@@ -16,7 +16,7 @@
 
 	@include ('layouts.errors')
 
-	<form action="{{ route('dso.notes.add') }}" method="POST">
+	<form action="{{ route('dso.notes.create') }}" method="POST">
 		{{ csrf_field() }}
 
 		<div class="form-group">

@@ -26,6 +26,7 @@
 
 	<form action="{{ route('dso.logs.update', $log->id) }}" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
+		{{ method_field('PUT') }}
 		<div class="form-group">
 			<label for="psi_res"><strong>Reservoir PSI</strong></label>
 			<input type="number" class="form-control" pattern="[0-9]*" name="psi_res" id="psi_res" required maxlength="4" placeholder="0" autocomplete="off" min="0" max="5000" step="100" value="{{ $log->psi_res }}" />

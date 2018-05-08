@@ -9,7 +9,7 @@
 	<div class="btn-group mr-2">
 		<a href="{{ route('dso.logs.edit', $log->id) }}" class="btn btn-sm btn-outline-primary">Edit Log</a>
 		<a href="{{ route('dso.logs') }}" class="btn btn-sm btn-outline-secondary">View Logs</a>
-		<a href="{{ route('dso.logs.add') }}" class="btn btn-sm btn-outline-secondary">Add Daily Log</a>
+		<a href="{{ route('dso.logs.create') }}" class="btn btn-sm btn-outline-secondary">Create Daily Log</a>
 	</div>
 </div>
 @endsection
