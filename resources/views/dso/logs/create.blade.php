@@ -1,7 +1,7 @@
 @extends ('layouts.dso.master')
 
 @section ('title')
-	Logs - Edit Log
+	Logs - Add Log
 @endsection
 
 @section ('extra-nav')

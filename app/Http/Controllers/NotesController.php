@@ -44,7 +44,7 @@ class NotesController extends Controller
 
 		Note::create([
 			'ip' => $request->ip(),
-			'content' => $request->note_content,
+			'content' => $request->note_content
 		]);
 
 		session()->flash('message', 'Your note has been saved.');
