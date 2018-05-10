@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section ('title')
-	<a href="{{ route('volunteer') }}">Volunteer Information</a> <svg class="feather"><use xlink:href="{{ asset('/feather/feather-sprite.svg#chevron-right') }}"/></svg>Diver
+	<a href="{{ route('volunteer.home') }}">Volunteer Information</a> <svg class="feather"><use xlink:href="{{ asset('/feather/feather-sprite.svg#chevron-right') }}"/></svg>Diver
 @endsection
 
 @section ('content')

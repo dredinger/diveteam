@@ -68,6 +68,6 @@ class SessionsController extends Controller
 
         session()->flash('message', 'You are logged out!');
 
-        return redirect('/contact');
+        return redirect(route('home'));
     }
 }

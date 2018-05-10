@@ -26,7 +26,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h1>Welcome to the new (and improved!) Deep Blue Sea Foundation website!</h1>
 				<p>If you're here for some info, please check the links at the top of the page. If you have questions about the Foundation, please use the button below to be sent to the information page.</p>
-				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer') }}" role="button">Learn More</a></p>
+				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer.home') }}" role="button">Learn More</a></p>
 			</div>
 		</div>
 		<div class="carousel-item">
@@ -54,7 +54,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h1>Who We Are</h1>
 				<p>Have you ever wondered just what the DBSF dive team does? Click the button below to learn more!</p>
-				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer') }}" role="button">Learn More</a></p>
+				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer.home') }}" role="button">Learn More</a></p>
 			</div>
 		</div>
 		<div class="carousel-item">
@@ -80,7 +80,7 @@
 			<div class="carousel-caption d-none d-md-block text-right">
 				<h1>Become a volunteer diver today!</h1>
 				<p>You can do more in the future by helping out today. Click the button below to get started!</p>
-				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer') }}" role="button">Volunteer Today!</a></p>
+				<p><a class="btn btn-lg btn-primary" href="{{ route('volunteer.home') }}" role="button">Volunteer Today!</a></p>
 			</div>
 		</div>
 	</div>

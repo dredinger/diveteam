@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::domain('localhost')->group(function () {
+Route::domain(env('APP_URL', 'deepblueseafoundation.org'))->group(function () {
 	Route::get('/', 'MainController@index')->name('home');
 
 	Route::get('/downloads', 'DownloadsController@index')->name('downloads');
@@ -19,24 +19,26 @@ Route::domain('localhost')->group(function () {
 
 	Route::get('/contact', 'ContactController@index')->name('contact');
 
-	Route::group(['prefix' => 'volunteer'], function () {
-		Route::get('/', 'VolunteerController@index')->name('volunteer');
-		Route::get('assistant', 'VolunteerController@assistant')->name('volunteer.assistant');
-		Route::get('guide', 'VolunteerController@guide')->name('volunteer.guide');
-		Route::get('diver', 'VolunteerController@diver')->name('volunteer.diver');
-		Route::get('contact', 'VolunteerController@contact')->name('volunteer.contact');
-		Route::post('contact', 'VolunteerController@store');
+	Route::group(['prefix' => 'volunteer', 'as' => 'volunteer.'], function () {
+		Route::get('/', 'VolunteerController@index')->name('home');
+		Route::get('assistant', 'VolunteerController@assistant')->name('assistant');
+		Route::get('guide', 'VolunteerController@guide')->name('guide');
+		Route::get('diver', 'VolunteerController@diver')->name('diver');
+		// Route::get('contact', 'VolunteerController@contact')->name('contact');
+		// Route::post('contact', 'VolunteerController@store');
 	});
 
-	Route::group(['prefix' => 'info'], function () {
-		Route::get('/', 'InfoController@index')->name('info');
+	Route::group(['prefix' => 'info', 'as' => 'info.'], function () {
+		Route::get('/', 'InfoController@index')->name('home');
 		Route::get('trainers', 'InfoController@trainer')->name('trainers');
 		Route::get('feeds', 'InfoController@feeds')->name('feeds');
 	});
 
+	// Auth::routes();
+
 	Route::get('login', 'Auth\SessionsController@create')->name('login');
 	Route::post('login', 'Auth\SessionsController@store');
-	// Route::get('logout', 'Auth\SessionsController@destroy')->name('logout');
+	// Route::post('logout', 'Auth\SessionsController@destroy')->name('logout');
 
 	Route::post('logout', function () {
 		auth()->logout();
@@ -45,7 +47,7 @@ Route::domain('localhost')->group(function () {
 	})->name('logout');
 });
 
-Route::group(['domain' => 'dso.localhost'], function () { //, 'middleware' => 'auth'
+Route::domain(env('DSO_URL', 'dso.deepblueseafoundation.org'))->group(function () {
 
 	Route::name('dso.')->group(function () {
 		Route::get('/', 'DsoController@index')->name('home');
@@ -61,7 +63,7 @@ Route::group(['domain' => 'dso.localhost'], function () { //, 'middleware' => 'a
 	});
 	
 	Route::post('/search', 'DsoController@search');
-	Route::post('/logs/add', 'LogsController@store');
-	Route::post('/notes/add', 'NotesController@store');
+	Route::post('/logs/create', 'LogsController@store');
+	Route::post('/notes/create', 'NotesController@store');
 
 });
