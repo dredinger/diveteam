@@ -39,6 +39,7 @@
 			<p class="card-text">UTS Jumppack PSI: {{ $log->psi_uts }}</p>
 			<p class="card-text">SW Jumppack PSI: {{ $log->psi_sw }}</p>
 			<p class="card-text">DR Jumppack PSI: {{ $log->psi_dr }}</p>
+			<p class="card-text">Bank System PSI: {{ $log->psi_bank }}</p>
 			<p class="card-text">Jumppack Masks In Place: {!! $log->jumppack_masks == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
 			<p class="card-text">Disinfectants Checked: {!! $log->disinfectants == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
 			<p class="card-text">Safety Diver Checklists Completed: {!! $log->sd_checklist == 1 ? 'Yes' : '<span class="text-danger font-weight-bold">No</span>' !!}</p>
