@@ -16,10 +16,10 @@
 				<a class="nav-link{{ setActiveMenu('downloads') }} py-3" href="{{ route('downloads') }}">Downloads</a>
 			</li>
 			<li class="nav-item dropdown">
-				<a class="nav-link{{ setActiveMenu('info') }} py-3 dropdown-toggle" href="#" id="navbarDropdownInfo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aquarium Info</a>
+				<a class="nav-link{{ setActiveMenu('info.home') }} py-3 dropdown-toggle" href="#" id="navbarDropdownInfo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aquarium Info</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
-					<a class="dropdown-item" href="{{ route('trainers') }}">Academy Trainer Availability</a>
-					<a class="dropdown-item" href="{{ route('feeds') }}">Dive Feeding Schedule</a>
+					<a class="dropdown-item" href="{{ route('info.trainers') }}">Academy Trainer Availability</a>
+					<a class="dropdown-item" href="{{ route('info.feeds') }}">Dive Feeding Schedule</a>
 				</div>
 			</li>
 			<li class="nav-item">
@@ -45,7 +45,7 @@
 		</li>
 		@else
 		<li class="nav-item">
-			<a class="nav-link{{ setActiveMenu('volunteer') }} py-3" href="{{ route('volunteer') }}">Volunteer Information</a>
+			<a class="nav-link{{ setActiveMenu('volunteer.home') }} py-3" href="{{ route('volunteer.home') }}">Volunteer Information</a>
 		</li>
 	</ul>
 	<ul class="navbar navbar-nav ml-auto">
