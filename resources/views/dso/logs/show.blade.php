@@ -61,17 +61,22 @@
 		@endif
 		@if ($log->picture_id)
 		<div class="card-footer">
-			<p class="card-text"><img class="img-fluid" src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" /></p>
+			<p class="card-text">
+				<div class="img-magnifier-container">
+					<img id="dso-picture" class="img-fluid" src="{{ asset('storage/dso-pictures/' . $log->picture_id) }}" />
+				</div>
+			</p>
 		</div>
 		@endif
 	</div>
 
 @endsection
 
-@if (count($verify) > 0)
 @section ('extra')
 
-
+	<script>
+		magnify('dso-picture', 3);
+	</script>
 	<script type="text/javascript">
 		$(function () {
 			$('[data-toggle="popover"]').popover({
@@ -81,4 +86,3 @@
 	</script>
 
 @endsection
-@endif

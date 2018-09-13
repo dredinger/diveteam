@@ -9,58 +9,63 @@ use Illuminate\Support\Facades\Mail;
 class VolunteerController extends Controller
 {
 
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('volunteer.index');
-    }
+	public function __construct()
+	{
+		// $this->middleware('auth');
+	}
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		return view('volunteer.index');
+	}
 
-    public function assistant()
-    {
-        return view('volunteer.assistant');
-    }
+	public function assistant()
+	{
+		return view('volunteer.assistant');
+	}
 
-    public function guide()
-    {
-        return view('volunteer.guide');
-    }
+	public function guide()
+	{
+		return view('volunteer.guide');
+	}
 
-    public function diver()
-    {
-        return view('volunteer.diver');
-    }
+	public function diver()
+	{
+		return view('volunteer.diver');
+	}
 
-    public function contact()
-    {
-        return view('volunteer.contact');
-    }
+	public function apply()
+	{
+		return view('volunteer.apply');
+	}
 
-    public function store(VolunteerContactRequest $request)
-    {
-        Mail::send('emails.contact',
-            [
-                'name' => $request->name,
-                'email' => $request->email,
-                'position' => $request->position,
-                'user_message' => $request->message
-            ], function ($message) {
-                $message->from('info@deepblueseafoundation.org', 'DBSF Volunteer Form');
-                $message->to('daniel.redinger@gmail.com', 'Admin');
-                $message->subject('Volunteer Contact Form');
-            }
-        );
+	public function contact()
+	{
+		return view('volunteer.contact');
+	}
 
-        session()->flash('message', 'Thank you for contacting us!');
+	public function store(VolunteerContactRequest $request)
+	{
+		Mail::send('emails.contact',
+			[
+				'name' => $request->name,
+				'email' => $request->email,
+				'position' => $request->position,
+				'user_message' => $request->message
+			], function ($message) {
+				$message->from('info@deepblueseafoundation.org', 'DBSF Volunteer Form');
+				$message->to('daniel.redinger@gmail.com', 'Admin');
+				$message->subject('Volunteer Contact Form');
+			}
+		);
 
-        return redirect(route('volunteer.contact'));
-    }
-    
+		session()->flash('message', 'Thank you for contacting us!');
+
+		return redirect(route('volunteer.contact'));
+	}
+	
 }

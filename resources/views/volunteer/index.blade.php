@@ -55,6 +55,9 @@
 		<dd class="col-sm-9 pt-2 border-top"><a href="{{ route('volunteer.assistant') }}">Animal Care Assistant</a></dd>
 		<dd class="col-sm-9 offset-sm-3"><a href="{{ route('volunteer.guide') }}">Aquarium Guide</a></dd>
 		<dd class="col-sm-9 offset-sm-3"><a href="{{ route('volunteer.diver') }}">Diver</a></dd>
+
+		<dt class="col-sm-3 pt-2 border-top">Apply Now!</dt>
+		<dd class="col-sm-9 pt-2 border-top"><a href="{{ route('volunteer.apply') }}">Apply Now!</a></dd>
 	</dl>
 
 @endsection

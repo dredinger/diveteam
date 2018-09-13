@@ -24,6 +24,8 @@ Route::domain(env('APP_URL', 'deepblueseafoundation.org'))->group(function () {
 		Route::get('assistant', 'VolunteerController@assistant')->name('assistant');
 		Route::get('guide', 'VolunteerController@guide')->name('guide');
 		Route::get('diver', 'VolunteerController@diver')->name('diver');
+
+		Route::get('apply', 'VolunteerController@apply')->name('apply');
 		// Route::get('contact', 'VolunteerController@contact')->name('contact');
 		// Route::post('contact', 'VolunteerController@store');
 	});

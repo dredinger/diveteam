@@ -149,6 +149,28 @@ table {
 }
 
 
+/* MAGNIFIER CUSTOMIZATION
+-------------------------------------------------- */
+
+* {box-sizing: border-box;}
+
+.img-magnifier-container {
+	position: relative;
+}
+
+.img-magnifier-glass {
+	position: absolute;
+	border: 2px solid black;
+	border-radius: 50%;
+	cursor: none;
+	width: 250px;
+	height: 250px;
+}
+
+
+
+
+
 
 /* DSO CUSTOMIZATION
 -------------------------------------------------- */
