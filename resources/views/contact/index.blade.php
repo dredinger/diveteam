@@ -7,7 +7,7 @@
 @section ('content')
 
 	<div class="table-responsive-xl">
-		<table class="table table-bordered table-hover table-striped">
+		<table class="table table-bordered table-hover table-striped table-light">
 			<thead>
 				<tr>
 					<th>Name</th>
