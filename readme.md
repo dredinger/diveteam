@@ -4,9 +4,9 @@ This repository was created for the use of the Deep Blue Sea Foundation Dive Tea
 
 ### Built With
 
-* [Laravel](https://laravel.com) - Web Framework
-* [Bootstrap](https://getbootstrap.com) - CSS Framework
-* [JQuery](https://jquery.com) - JS Framework
+* [Laravel](https://laravel.com)
+* [Bootstrap](https://getbootstrap.com)
+* [JQuery](https://jquery.com)
 
 ### Authors
 
